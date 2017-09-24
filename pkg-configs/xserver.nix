@@ -27,8 +27,13 @@ fonts = {
   fontconfig.cache32Bit = true;
 
   fonts = with pkgs; [
-    terminus_font
+    # Jap fonts
+    ipafont
+    mplus-outline-fonts
+    noto-fonts-cjk
+    # Terminal fonts
     source-code-pro
+    terminus_font
   ];
 };
 

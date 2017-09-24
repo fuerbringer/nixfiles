@@ -78,7 +78,7 @@
     let
       # Generic pkgs and imports
       common = [
-        (import ./pkg-configs/vim.nix)
+        # (import ./pkg-configs/vim.nix)
         curl
         file
         git
@@ -88,6 +88,7 @@
         moc
         nmap
         nodejs
+        openvpn
         pciutils
         pulseaudioLight
         python35Packages.youtube-dl-light
@@ -110,6 +111,7 @@
         feh
         firefox
         gimp
+        i3lock
         i3status
         keepassx2
         libreoffice
