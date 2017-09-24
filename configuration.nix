@@ -92,6 +92,7 @@
         pciutils
         pulseaudioLight
         python35Packages.youtube-dl-light
+        stow
         sudo
         syncthing
         unzip
