@@ -85,13 +85,18 @@
         gnupg1
         htop
         i7z
+        kbfs
+        keybase
+        keybase-gui
         moc
         nmap
         nodejs
         openvpn
         pciutils
         pulseaudioLight
+        python35Packages.pip
         python35Packages.youtube-dl-light
+        python3Full
         stow
         sudo
         syncthing
