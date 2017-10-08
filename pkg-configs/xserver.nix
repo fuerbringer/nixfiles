@@ -34,6 +34,9 @@ fonts = {
     # Terminal fonts
     source-code-pro
     terminus_font
+    # Misc. fonts
+    noto-fonts
+    google-fonts
   ];
 };
 

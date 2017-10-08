@@ -11,6 +11,9 @@
     
     # Hardened settings
     ./sys-configs/hardened.nix
+    
+    # OpenVPN
+    ./sys-configs/openvpn.nix
 
     # Graphical environment
     ./pkg-configs/xserver.nix
@@ -101,6 +104,7 @@
         sudo
         syncthing
         unzip
+        update-resolv-conf
         vim
         wget
         whois
