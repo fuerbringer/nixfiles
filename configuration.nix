@@ -86,6 +86,7 @@
         file
         git
         gnupg1
+        hexchat
         htop
         i7z
         kbfs
@@ -132,6 +133,8 @@
         scrot
         tdesktop
         torbrowser
+        transmission
+        transmission_gtk
         virtualbox
         vlc
         xfce.terminal
