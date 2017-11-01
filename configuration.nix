@@ -82,6 +82,8 @@
       # Generic pkgs and imports
       common = [
         # (import ./pkg-configs/vim.nix)
+        bc
+        bmon
         curl
         file
         git
@@ -90,8 +92,6 @@
         htop
         i7z
         kbfs
-        keybase
-        keybase-gui
         moc
         nmap
         nodejs
@@ -101,14 +101,17 @@
         python35Packages.pip
         python35Packages.youtube-dl-light
         python3Full
+        stack
         stow
         sudo
         syncthing
+        tldr
         unzip
         update-resolv-conf
         vim
         wget
         whois
+        zlib
       ];
 
       # When no Xorg installed
@@ -132,6 +135,7 @@
         screenfetch
         scrot
         tdesktop
+        thunderbird
         torbrowser
         transmission
         transmission_gtk
