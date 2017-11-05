@@ -86,7 +86,9 @@
         bmon
         curl
         file
+        gcc
         git
+        gnumake
         gnupg1
         hexchat
         htop
