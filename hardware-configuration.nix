@@ -4,24 +4,22 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports = [
-    <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
-  ];
+  imports =
+    [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
+    ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" "sr_mod" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usbhid" "sd_mod" "sr_mod" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/2bca689b-a59d-47fd-90c6-8edc9039d222";
       fsType = "ext4";
-      options = [ "noatime" "nodiratime" "discard" ];
     };
 
   fileSystems."/home" =
     { device = "/dev/disk/by-uuid/0f1d5ccc-8090-4f69-823a-96d2f5772185";
       fsType = "ext4";
-      options = [ "noatime" "nodiratime" "discard" ];
     };
 
   fileSystems."/hdd" =
@@ -29,22 +27,10 @@
       fsType = "ext4";
     };
 
-
-  boot.initrd.luks.devices = [
-    {
-      name = "root";
-      device = "/dev/sda1";
-      preLVM = true;
-      allowDiscards = true;
-    }
-    {
-      name = "hdd";
-      device = "/dev/disk/by-uuid/6d9fbce7-df17-4582-ad8b-3624b36b55ac";
-    }
-  ];
+  boot.initrd.luks.devices."hdd".device = "/dev/disk/by-uuid/6d9fbce7-df17-4582-ad8b-3624b36b55ac";
 
   swapDevices = [ ];
 
   nix.maxJobs = lib.mkDefault 8;
-  powerManagement.cpuFreqGovernor = "performance";
+  powerManagement.cpuFreqGovernor = "powersave";
 }

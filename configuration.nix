@@ -6,8 +6,11 @@
 
 {
   imports = [
-    # Hardware scan
+    # Generated hardware scan
     ./hardware-configuration.nix
+
+    # Volume and boot settings
+    ./boot-volumes.nix
     
     # Hardened settings
     ./sys-configs/hardened.nix
