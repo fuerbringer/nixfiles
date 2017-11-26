@@ -23,7 +23,7 @@
 
   ];
 
-  system.stateVersion = "17.03";
+  system.stateVersion = "17.09";
 
   # Use the GRUB 2 boot loader
   boot.loader.grub.enable = true;
@@ -31,7 +31,13 @@
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.enableCryptodisk = true;
   boot.kernelModules = [ "nouveau" "vboxdrv" "vboxnetflt" "vboxnetadp" ];
-  virtualisation.virtualbox.host.enable = true;
+
+  virtualisation = {
+    virtualbox = {
+      host.enable = true;
+    };
+    docker.enable = true;
+  };
 
   hardware.pulseaudio.enable = true;
 
@@ -59,6 +65,11 @@
     dataDir = "/hdd/sync";
   };
 
+  services.nixosManual = {
+    showManual = true;
+    # browsers = "{pkgs.w3m}/bin/w3m" # default
+  };
+
   # Firewall
   networking.firewall.allowedTCPPorts = [ 22000 3000 ];
   networking.firewall.allowedUDPPorts = [ 21027 ];
@@ -66,7 +77,7 @@
 
   # Me
   users.extraUsers.sev = {
-    extraGroups = [ "wheel" "users" "video" "audio" "syncthing" ];
+    extraGroups = [ "wheel" "users" "video" "audio" "syncthing" "docker" ];
     isNormalUser = true;
     uid = 1000;
   };
@@ -84,10 +95,11 @@
     let
       # Generic pkgs and imports
       common = [
-        # (import ./pkg-configs/vim.nix)
+        bash
         bc
         bmon
         curl
+        docker
         file
         gcc
         git
@@ -149,5 +161,6 @@
         xfce.terminal
       ];
 
-    in common ++ (if config.services.xserver.enable then xorg else noxorg);
+    in
+      common ++ (if config.services.xserver.enable then xorg else noxorg);
 }
