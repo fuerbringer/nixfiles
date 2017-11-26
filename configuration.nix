@@ -49,7 +49,7 @@
   i18n = {
     consoleFont = "Lat2-Terminus16";
     consoleKeyMap = "de_CH-latin1";
-    defaultLocale = "en_US.UTF-8";
+    defaultLocale = "fr_FR.UTF-8";
   };
 
   # TZ
