@@ -59,6 +59,7 @@
   services.journald.extraConfig = "SystemMaxUse=1024M";
   services.printing.enable = false;
   services.openssh.enable = false;
+  services.i2p.enable = true;
   services.syncthing = {
     enable = true;
     user = "sev";
