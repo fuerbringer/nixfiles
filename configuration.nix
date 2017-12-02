@@ -96,6 +96,8 @@
     let
       # Generic pkgs and imports
       common = [
+        texlive-combined-full-2016
+        pandoc
         bash
         bc
         bmon
