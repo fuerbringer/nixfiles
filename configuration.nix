@@ -96,8 +96,6 @@
     let
       # Generic pkgs and imports
       common = [
-        texlive-combined-full-2016
-        pandoc
         bash
         bc
         bmon
@@ -116,6 +114,7 @@
         nmap
         nodejs
         openvpn
+        pandoc
         pciutils
         pulseaudioLight
         python35Packages.pip
@@ -125,6 +124,7 @@
         stow
         sudo
         syncthing
+        texlive.combined.scheme-full
         tldr
         unzip
         update-resolv-conf
