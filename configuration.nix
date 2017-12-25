@@ -101,6 +101,7 @@
         bmon
         curl
         docker
+        docker_compose
         file
         gcc
         git
@@ -143,6 +144,7 @@
       xorg = [
         dmenu
         feh
+        filezilla
         firefox
         gimp
         i3lock
