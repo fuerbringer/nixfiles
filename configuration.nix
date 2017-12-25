@@ -4,6 +4,12 @@
 
 { config, pkgs, ... }:
 
+let
+  timeWasters =
+  [ "www.reddit.com"
+    "reddit.com"
+  ];
+in
 {
   imports = [
     # Generated hardware scan
@@ -44,6 +50,9 @@
   networking.hostName = "orbit";
   networking.wireless.enable = false;
   networking.enableIPv6 = true;
+  networking.hosts = {
+    "127.0.0.1" = [  ] ++ timeWasters;
+  };
 
   # Internationalisation
   i18n = {
