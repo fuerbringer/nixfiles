@@ -122,7 +122,7 @@ in
         kbfs
         moc
         nmap
-        nodejs
+        nodejs-8_x 
         openvpn
         pandoc
         pciutils
