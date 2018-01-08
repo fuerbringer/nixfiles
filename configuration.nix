@@ -8,6 +8,8 @@ let
   timeWasters =
   [ "www.reddit.com"
     "reddit.com"
+    "youtube.com"
+    "www.youtube.com"
   ];
 in
 {
