@@ -107,6 +107,7 @@ in
     let
       # Generic pkgs and imports
       common = [
+        ansible
         bash
         bc
         bmon
