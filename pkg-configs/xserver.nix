@@ -15,9 +15,13 @@ services.xserver = {
   displayManager.lightdm.enable = true;
 
   # Use i3wm with a custom config
-  windowManager.i3 = {
-    enable = true;
-    configFile = "/etc/i3/config";
+  windowManager = {
+    i3 = {
+      enable = true;
+      configFile = "/etc/i3/config";
+      package = pkgs.i3-gaps;
+    };
+    default = "i3";
   };
 
 };

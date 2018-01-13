@@ -154,6 +154,7 @@ bar {
 
 	position bottom
 	separator_symbol "月"
+  height 22
 	colors {
 		background #0b000f
 		statusline #888888
@@ -168,15 +169,19 @@ bar {
 }
 
 # class                 border  backgr. text    indicator
-client.focused          #7fdd57 #0b000f #dddddd #aaaaaa
-#client.focused          #D2738B #0b000f #dddddd #aaaaaa
+client.focused          #7fdd57 #dddddd #dddddd #aaaaaa
 client.focused_inactive #333333 #0b000f #888888 #484e50
 client.unfocused        #222222 #0b000f #888888 #292d2e
 client.urgent           #2f343a #900000 #ffffff #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000
 client.background       #0b000f
 
-#exec redshift -l 47.402027:8.553302
+# i3 gaps
+for_window [class="^.*"] border pixel 2
+gaps inner 15
+gaps outer 2
+#smart_gaps on
+smart_borders on
 
 # Alsa
 #bindsym $mod+Prior exec amixer -D pulse sset Master 5%+
