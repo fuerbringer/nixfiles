@@ -71,6 +71,7 @@ in
   services.printing.enable = false;
   services.openssh.enable = false;
   services.i2p.enable = true;
+  services.mongodb.enable = true;
   services.syncthing = {
     enable = true;
     user = "sev";

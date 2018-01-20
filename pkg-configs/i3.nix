@@ -197,4 +197,9 @@ bindsym $mod+Next exec pactl set-sink-mute 1 false ; exec pactl -- set-sink-volu
 #bindsym $mod+Next exec sh -c "pactl set-sink-mute 1 false ; pactl set-sink-volume 1 -5%"
 #exec xinput --set-prop 8 'libinput Accel Speed' -0.29
 exec xinput set-prop 'Logitech G400s Optical Gaming Mouse' 'Device Accel Profile' -1
+
+# Wallpaper
+exec feh --bg-fill /hdd/sync/media/pics/wallpaper/sunset.png
+
 ''
+
