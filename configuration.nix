@@ -11,6 +11,10 @@ let
     "youtube.com"
     "www.youtube.com"
   ];
+  libbieRedirects =
+  [ "i2p.s.fuerbringer.info"
+    "i2p-proxy.s.fuerbringer.info"
+  ];
 in
 {
   imports = [
@@ -53,7 +57,8 @@ in
   networking.wireless.enable = false;
   networking.enableIPv6 = true;
   networking.hosts = {
-    "127.0.0.1" = [  ] ++ timeWasters;
+    "127.0.0.1" = timeWasters;
+    "10.1.1.15" = libbieRedirects;
   };
 
   # Internationalisation
