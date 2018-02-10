@@ -126,6 +126,7 @@ in
         gnumake
         gnupg1
         hexchat
+        httpie
         htop
         i7z
         kbfs
