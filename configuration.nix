@@ -33,6 +33,8 @@ in
     # Graphical environment
     ./pkg-configs/xserver.nix
 
+    # Sudo
+    ./pkg-configs/sudo.nix
   ];
 
   system.stateVersion = "17.09";
