@@ -11,10 +11,6 @@ let
     "youtube.com"
     "www.youtube.com"
   ];
-  libbieRedirects =
-  [ "i2p.s.fuerbringer.info"
-    "i2p-proxy.s.fuerbringer.info"
-  ];
 in
 {
   imports = [
@@ -50,7 +46,9 @@ in
     virtualbox = {
       host.enable = true;
     };
-    docker.enable = true;
+    docker = {
+      enable = true;
+    };
   };
 
   hardware.pulseaudio.enable = true;
@@ -60,7 +58,6 @@ in
   networking.enableIPv6 = true;
   networking.hosts = {
     "127.0.0.1" = timeWasters;
-    "10.1.1.15" = libbieRedirects;
   };
 
   # Internationalisation
@@ -156,6 +153,13 @@ in
         zlib
       ];
 
+      manPages = [
+        pkgs.man-pages
+        pkgs.stdman
+        pkgs.posix_man_pages
+        pkgs.stdmanpages
+      ];
+
       # When no Xorg installed
       noxorg = [
         tmux
@@ -188,5 +192,5 @@ in
       ];
 
     in
-      common ++ (if config.services.xserver.enable then xorg else noxorg);
+      common ++ manPages ++ (if config.services.xserver.enable then xorg else noxorg);
 }
