@@ -88,8 +88,8 @@ in
   };
 
   # Firewall
-  networking.firewall.allowedTCPPorts = [ 22000 3000 ];
-  networking.firewall.allowedUDPPorts = [ 21027 ];
+  networking.firewall.allowedTCPPorts = [ 3000 ];
+  networking.firewall.allowedUDPPorts = [ ];
   networking.firewall.enable = true;
 
   # Me
@@ -130,6 +130,7 @@ in
         i7z
         kbfs
         moc
+        nixops
         nmap
         nodejs-8_x 
         openvpn
