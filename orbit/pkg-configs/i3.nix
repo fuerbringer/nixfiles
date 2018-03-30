@@ -1,5 +1,5 @@
 let
-
+  backgroundImage = "/hdd/sync/media/pics/wallpaper/abe1.jpg";
 in ''
 # i3 config file (v4)
 #
@@ -199,7 +199,7 @@ bindsym $mod+Next exec pactl set-sink-mute 1 false ; exec pactl -- set-sink-volu
 exec xinput set-prop 'Logitech G400s Optical Gaming Mouse' 'Device Accel Profile' -1
 
 # Wallpaper
-exec feh --bg-fill /hdd/sync/media/pics/wallpaper/sunset.png
+exec feh --bg-fill ${backgroundImage}
 
 ''
 
