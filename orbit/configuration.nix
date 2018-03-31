@@ -37,6 +37,7 @@ in
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.enableCryptodisk = true;
   boot.kernelModules = [ "nouveau" "vboxdrv" "vboxnetflt" "vboxnetadp" ];
+  boot.cleanTmpDir = true;
 
   virtualisation = {
     virtualbox = {
