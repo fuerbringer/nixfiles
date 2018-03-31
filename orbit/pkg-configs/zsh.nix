@@ -1,7 +1,12 @@
-{ pkgs, ...}:
-
 {
-  programs.zsh.enable = true;
-  programs.zsh.enableAutosuggestions = true;
-  programs.zsh.syntaxHighlighting.enable = true;
+  programs.zsh = {
+    enable = true;
+    enableAutosuggestions = true;
+    enableCompletion = true;
+    syntaxHighlighting.enable = true;
+    ohMyZsh = {
+      enable = true;
+      theme = "bureau";
+    };
+  };
 }
