@@ -97,6 +97,7 @@ in
     extraGroups = [ "wheel" "users" "video" "audio" "syncthing" "docker" ];
     isNormalUser = true;
     uid = 1000;
+    shell = "${pkgs.zsh}/bin/zsh";
   };
 
   nixpkgs.config = {
