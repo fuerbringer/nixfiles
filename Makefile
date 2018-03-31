@@ -4,6 +4,8 @@ NIXOS_CONF_BACKUP := /tmp/
 NIXOS_CONF_BACKUP_EXT := .nixos.tar.gz
 NIXOS_CONF_BACKUP_FILE := $(NIXOS_CONF_BACKUP)$(NOW)$(NIXOS_CONF_BACKUP_EXT)
 
+.PHONY: deploy purge help
+
 deploy:
 	test -n "$(machine)"	# $$machine must be set (folder name with nix configs)
 	echo "# Replaced by $(machine) configuration" | sudo tee --append $(NIXOS_CONF)meta > /dev/null
