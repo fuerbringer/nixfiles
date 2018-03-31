@@ -27,6 +27,9 @@ in
 
     # Sudo
     ./pkg-configs/sudo.nix
+
+    # Zshell
+    ./pkg-configs/zsh.nix
   ];
 
   system.stateVersion = "17.09";
