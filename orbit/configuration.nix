@@ -190,7 +190,7 @@ in
         transmission_gtk
         virtualbox
         vlc
-        xfce.terminal
+        lxqt.qterminal
       ];
 
     in

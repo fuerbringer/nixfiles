@@ -26,7 +26,7 @@ font pango:DejaVu Serif 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec qterminal
 
 
 # kill focused window
@@ -200,6 +200,7 @@ exec xinput set-prop 'Logitech G400s Optical Gaming Mouse' 'Device Accel Profile
 
 # Wallpaper
 exec feh --bg-fill ${backgroundImage}
+
 
 ''
 

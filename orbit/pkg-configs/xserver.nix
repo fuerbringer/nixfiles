@@ -6,25 +6,42 @@
 environment.etc."i3/config".text = import ./i3.nix;
 environment.etc."i3status.conf".text = import ./i3status.nix;
 
-services.xserver = {
-  enable = true;
-  # Swiss-German keyboard layout
-  layout = "ch";
-
-  # Use LightDM as display manager
-  displayManager.lightdm.enable = true;
-
-  # Use i3wm with a custom config
-  windowManager = {
-    i3 = {
-      enable = true;
-      configFile = "/etc/i3/config";
-      package = pkgs.i3-gaps;
+services = {
+  xserver = {
+    enable = true;
+    # Swiss-German keyboard layout
+    layout = "ch";
+  
+    # Use LightDM as display manager
+    displayManager.lightdm.enable = true;
+  
+    # Use i3wm with a custom config
+    windowManager = {
+      i3 = {
+        enable = true;
+        configFile = "/etc/i3/config";
+        package = pkgs.i3-gaps;
+      };
+      default = "i3";
     };
-    default = "i3";
   };
 
+  compton = {
+    enable = true;
+    extraOptions = ''
+      opacity-rule = [ "95:class_g = 'qterminal'" ];
+    '';
+  };
+
+  redshift = {
+    enable = true;
+  
+    # Zürich City
+    latitude = "47.3686";
+    longitude = "8.5392";
+  };
 };
+
 
 fonts = {
   enableFontDir = true;
@@ -38,19 +55,11 @@ fonts = {
     # Terminal fonts
     source-code-pro
     terminus_font
+    fira-code
     # Misc. fonts
     noto-fonts
     google-fonts
   ];
-};
-
-# Redshift screen
-services.redshift = {
-  enable = true;
-
-  # Zürich City
-  latitude = "47.3686";
-  longitude = "8.5392";
 };
 
 }
