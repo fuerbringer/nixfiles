@@ -80,6 +80,7 @@ in
     enable = true;
     user = "sev";
     dataDir = "/hdd/sync";
+    openDefaultPorts = true;
   };
 
   services.nixosManual = {
@@ -88,7 +89,9 @@ in
   };
 
   # Firewall
-  networking.firewall.allowedTCPPorts = [ 3000 ];
+  networking.firewall.allowedTCPPorts =
+    [ 3000  # Local development
+    ];
   networking.firewall.allowedUDPPorts = [ ];
   networking.firewall.enable = true;
 
