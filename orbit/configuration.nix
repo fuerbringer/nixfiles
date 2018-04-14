@@ -32,7 +32,7 @@ in
     ./pkg-configs/zsh.nix
   ];
 
-  system.stateVersion = "17.09";
+  system.stateVersion = "18.03";
 
   # Use the GRUB 2 boot loader
   boot.loader.grub.enable = true;
