@@ -10,14 +10,13 @@ let
 in
 {
   imports = [
+    <nixpkgs/nixos/modules/profiles/hardened.nix>
+
     # Generated hardware scan
     ./hardware-configuration.nix
 
     # Volume and boot settings
     ./boot-volumes.nix
-    
-    # Hardened settings
-    ./sys-configs/hardened.nix
     
     # OpenVPN
     ./sys-configs/openvpn.nix
