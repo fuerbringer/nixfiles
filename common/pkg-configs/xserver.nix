@@ -45,7 +45,7 @@ services = {
 
 fonts = {
   enableFontDir = true;
-  fontconfig.cache32Bit = true;
+  # fontconfig.cache32Bit = true;
 
   fonts = with pkgs; [
     # Jap fonts

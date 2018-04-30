@@ -3,6 +3,7 @@ NIXOS_CONF := /etc/nixos/
 NIXOS_CONF_BACKUP := /tmp/
 NIXOS_CONF_BACKUP_EXT := .nixos.tar.gz
 NIXOS_CONF_BACKUP_FILE := $(NIXOS_CONF_BACKUP)$(NOW)$(NIXOS_CONF_BACKUP_EXT)
+NIXOS_CONF_COMMON := common
 
 .PHONY: deploy purge help
 
@@ -11,6 +12,7 @@ deploy:
 	echo "# Replaced by $(machine) configuration" | sudo tee --append $(NIXOS_CONF)meta > /dev/null
 	sudo tar czf $(NIXOS_CONF_BACKUP_FILE) $(NIXOS_CONF)*
 	sudo chmod 0600 $(NIXOS_CONF_BACKUP_FILE)
+	sudo cp -r ./$(NIXOS_CONF_COMMON)/* $(NIXOS_CONF)
 	sudo cp -r ./$(machine)/* $(NIXOS_CONF)
 
 purge:
