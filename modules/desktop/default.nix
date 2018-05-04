@@ -13,9 +13,7 @@ in {
         example = "/path/to/image.png";
         description = "Path to the desktop wallpaper image (must be supported by pkgs.feh).";
       };
-    };
-    isMobile = {
-      backgroundImage = mkOption {
+      isMobile = mkOption {
         default = false;
         type = with types; nullOr bool;
         example = true;
@@ -35,7 +33,7 @@ in {
           else "${cfg.backgroundImage}";
         enableThinWindowBorders = true;
       };
-    environment.etc."i3status.conf".text = import ./i3status.nix { enableMobileOptions = true; };
+    environment.etc."i3status.conf".text = import ./i3status.nix { enableMobileOptions = cfg.isMobile; };
     
     services = {
       xserver = {
@@ -45,6 +43,8 @@ in {
       
         # Use LightDM as display manager
         displayManager.lightdm.enable = true;
+
+        libinput.enable = if cfg.isMobile then true else false;
       
         # Use i3wm with a custom config
         windowManager = {

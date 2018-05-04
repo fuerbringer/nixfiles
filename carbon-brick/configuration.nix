@@ -73,8 +73,8 @@
 
   hardware.pulseaudio.enable = true;
 
-  services.xserver.libinput.enable = true;
   services.desktop.backgroundImage = "/home/severin/sync/pics/wallpaper/abe1.jpg";
+  services.desktop.isMobile = true;
 
   services.syncthing = {
     enable = true;
