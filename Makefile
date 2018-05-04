@@ -4,6 +4,7 @@ NIXOS_CONF_BACKUP := /tmp/
 NIXOS_CONF_BACKUP_EXT := .nixos.tar.gz
 NIXOS_CONF_BACKUP_FILE := $(NIXOS_CONF_BACKUP)$(NOW)$(NIXOS_CONF_BACKUP_EXT)
 NIXOS_CONF_COMMON := common
+NIXOS_CONF_MODULES := modules
 
 .PHONY: deploy purge help
 
@@ -13,6 +14,7 @@ deploy:
 	sudo tar czf $(NIXOS_CONF_BACKUP_FILE) $(NIXOS_CONF)*
 	sudo chmod 0600 $(NIXOS_CONF_BACKUP_FILE)
 	sudo cp -r ./$(NIXOS_CONF_COMMON)/* $(NIXOS_CONF)
+	sudo cp -r ./$(NIXOS_CONF_MODULES)/* $(NIXOS_CONF)
 	sudo cp -r ./$(machine)/* $(NIXOS_CONF)
 
 purge:

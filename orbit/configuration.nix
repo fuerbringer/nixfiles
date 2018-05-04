@@ -21,8 +21,8 @@ in
     # OpenVPN
     ./sys-configs/openvpn.nix
 
-    # Graphical environment
-    ./pkg-configs/xserver.nix
+    # Desktop environment
+    ./desktop
 
     # Sudo
     ./pkg-configs/sudo.nix
@@ -81,6 +81,7 @@ in
     dataDir = "/hdd/sync";
     openDefaultPorts = true;
   };
+  services.desktop.backgroundImage = "/hdd/sync/media/pics/wallpaper/abe2.jpg";
 
   services.nixosManual = {
     showManual = true;
