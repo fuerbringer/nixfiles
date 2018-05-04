@@ -1,6 +1,9 @@
-{ backgroundImage }:
+{ backgroundImage, enableThinWindowBorders }:
 let
   background = if backgroundImage != "" then "exec feh --bg-fill ${backgroundImage}" else "";
+  borders = if enableThinWindowBorders
+    then { border = "1"; inner = "5"; outer = "1"; }
+    else { border = "2"; inner = "15"; outer = "2"; };
 in ''
 # i3 config file (v4)
 #
@@ -170,7 +173,7 @@ bar {
 }
 
 # class                 border  backgr. text    indicator
-client.focused          #7fdd57 #dddddd #dddddd #aaaaaa
+client.focused          #7fdd57 #0b000f #dddddd #aaaaaa
 client.focused_inactive #333333 #0b000f #888888 #484e50
 client.unfocused        #222222 #0b000f #888888 #292d2e
 client.urgent           #2f343a #900000 #ffffff #900000
@@ -178,10 +181,9 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000
 client.background       #0b000f
 
 # i3 gaps
-for_window [class="^.*"] border pixel 2
-gaps inner 15
-gaps outer 2
-#smart_gaps on
+for_window [class="^.*"] border pixel ${borders.border}
+gaps inner ${borders.inner}
+gaps outer ${borders.outer}
 smart_borders on
 
 # Alsa
