@@ -55,25 +55,12 @@
     EDITOR = "vim";
   };
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.bash.enableCompletion = true;
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  services.openssh.enable = false;
   networking.firewall.enable = true;
-
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
 
   hardware.pulseaudio.enable = true;
 
-  services.desktop.backgroundImage = "/home/severin/sync/pics/wallpaper/abe1.jpg";
+  services.desktop.backgroundImage = "/home/severin/sync/pics/wallpaper/abe2.jpg";
   services.desktop.isMobile = true;
 
   services.syncthing = {
@@ -99,6 +86,7 @@
     let
       # Generic pkgs and imports
      common = [
+        #texlive.combined.scheme-full
         alsaUtils
         bash
         bc
@@ -110,15 +98,14 @@
         gnumake
         gnupg1
         hexchat
-        httpie
         htop
+        httpie
         i7z
         kbfs
         moc
         nmap
         nodejs-8_x 
         openvpn
-        #pandoc
         pciutils
         pulseaudioLight
         python35Packages.pip
@@ -129,11 +116,11 @@
         stow
         sudo
         syncthing
-        #texlive.combined.scheme-full
         tldr
         unzip
         update-resolv-conf
         vim
+        w3m
         wget
         whois
         zlib
@@ -162,19 +149,14 @@
         i3status
         keepassx2
         libreoffice
-        linuxPackages.virtualbox
+        lxqt.qterminal
         mpv
         redshift
         screenfetch
         scrot
-        #tdesktop
         thunderbird
         torbrowser
-        transmission
-        transmission_gtk
-        virtualbox
         vlc
-        lxqt.qterminal
      ];
 
     in
