@@ -31,7 +31,7 @@ in {
       { backgroundImage =
           if builtins.isNull cfg.backgroundImage then ""
           else "${cfg.backgroundImage}";
-        enableThinWindowBorders = true;
+        enableThinWindowBorders = cfg.isMobile;
       };
     environment.etc."i3status.conf".text = import ./i3status.nix { enableMobileOptions = cfg.isMobile; };
     
