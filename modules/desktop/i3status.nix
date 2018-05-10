@@ -7,15 +7,18 @@ let
         order += "wireless _first_"
         order += "battery 0"
         '';
-      refreshRate = "10";
+      refreshRate = 2;
     }
-    else { extraOptions = ""; refreshRate = "1"; };
+    else
+    { extraOptions = "";
+      refreshRate = 1;
+    };
 in ''
 general {
   colors = true
   color_good = "#888888"
   color_bad = "#888888"
-  interval = ${mobileOptions.refreshRate}
+  interval = ${toString mobileOptions.refreshRate}
 }
 
 ${mobileOptions.extraOptions}
