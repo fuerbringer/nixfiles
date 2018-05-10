@@ -2,8 +2,8 @@
 let
   background = if backgroundImage != "" then "exec feh --bg-fill ${backgroundImage}" else "";
   borders = if enableThinWindowBorders
-    then { border = "1"; inner = "5"; outer = "1"; }
-    else { border = "2"; inner = "15"; outer = "2"; };
+    then { border = 1; inner = 5; outer = 1; }
+    else { border = 2; inner = 15; outer = 2; };
 in ''
 # i3 config file (v4)
 #
@@ -179,9 +179,9 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000
 client.background       #0b000f
 
 # i3 gaps
-for_window [class="^.*"] border pixel ${borders.border}
-gaps inner ${borders.inner}
-gaps outer ${borders.outer}
+for_window [class="^.*"] border pixel ${toString borders.border}
+gaps inner ${toString borders.inner}
+gaps outer ${toString borders.outer}
 smart_borders on
 
 # Alsa
