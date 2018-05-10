@@ -13,7 +13,7 @@ set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:DejaVu Serif 11
+font pango:Fira Code 11
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -31,7 +31,6 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec qterminal
-
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -126,50 +125,49 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym odiaeresis resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+  # These bindings trigger as soon as you enter the resize mode
+  
+  # Pressing left will shrink the window’s width.
+  # Pressing right will grow the window’s width.
+  # Pressing up will shrink the window’s height.
+  # Pressing down will grow the window’s height.
+  bindsym j resize shrink width 10 px or 10 ppt
+  bindsym k resize grow height 10 px or 10 ppt
+  bindsym l resize shrink height 10 px or 10 ppt
+  bindsym odiaeresis resize grow width 10 px or 10 ppt
+  
+  # same bindings, but for the arrow keys
+  bindsym Left resize shrink width 10 px or 10 ppt
+  bindsym Down resize grow height 10 px or 10 ppt
+  bindsym Up resize shrink height 10 px or 10 ppt
+  bindsym Right resize grow width 10 px or 10 ppt
+  
+  # back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
 }
 
 bindsym $mod+r mode "resize"
 
-
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-	status_command i3status --config /etc/i3status.conf
+  status_command i3status --config /etc/i3status.conf
 
-	position bottom
-	separator_symbol "月"
-  height 22
-	colors {
-		background #0b000f
-		statusline #888888
-		separator #7fdd57
+  position bottom
+  separator_symbol ","
+  height 20
+  colors {
+    background #0b000f
+    statusline #888888
+    separator #7fdd57
 
     # Type             border  background font
-		focused_workspace  #7fdd57 #0b000f #dddddd
-		active_workspace   #333333 #0b000f #dddddd
-		inactive_workspace #333333 #0b000f #888888
-		urgent_workspace   #aa0000 #990000 #ffffff
-	}
+    focused_workspace  #7fdd57 #0b000f #dddddd
+    active_workspace   #333333 #0b000f #dddddd
+    inactive_workspace #333333 #0b000f #888888
+    urgent_workspace   #aa0000 #990000 #ffffff
+  }
 }
 
 # class                 border  backgr. text    indicator
@@ -204,4 +202,3 @@ exec xinput set-prop 'Logitech G400s Optical Gaming Mouse' 'Device Accel Profile
 # Background wallpaper
 ${background}
 ''
-
