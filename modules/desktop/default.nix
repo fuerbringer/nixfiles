@@ -53,6 +53,11 @@ in {
             enable = true;
             configFile = "/etc/i3/config";
             package = pkgs.i3-gaps;
+            extraPackages = with pkgs; [
+              dmenu
+              i3status
+              i3lock-fancy
+            ];
           };
           default = "i3";
         };

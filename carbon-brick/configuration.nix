@@ -145,8 +145,6 @@
         filezilla
         firefox
         gimp
-        i3lock
-        i3status
         keepassx2
         libreoffice
         lxqt.qterminal

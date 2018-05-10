@@ -192,8 +192,8 @@ smart_borders on
 bindsym $mod+Prior exec pactl set-sink-mute 1 false ; exec pactl set-sink-volume 1 +5%
 bindsym $mod+Next exec pactl set-sink-mute 1 false ; exec pactl -- set-sink-volume 1 -5%
 
-# TODO
-#bindsym $mod+Control+l exec "i3lock -e -c 222222"
+bindsym $mod+Control+l exec "i3lock-fancy --greyscale --pixelate"
+bindsym $mod+Control+Shift+l exec "i3lock-fancy --greyscale --pixelate && systemctl suspend"
 
 #bindsym $mod+Next exec sh -c "pactl set-sink-mute 1 false ; pactl set-sink-volume 1 -5%"
 #exec xinput --set-prop 8 'libinput Accel Speed' -0.29
