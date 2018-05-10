@@ -24,8 +24,8 @@ in
     # Desktop environment
     ./desktop
 
-    # Sudo
-    ./pkg-configs/sudo.nix
+    # Custom sudo
+    ./sudo
 
     # Zshell
     ./pkg-configs/zsh.nix
@@ -81,7 +81,9 @@ in
     dataDir = "/hdd/sync";
     openDefaultPorts = true;
   };
+
   services.desktop.backgroundImage = "/hdd/sync/media/pics/wallpaper/abe2.jpg";
+  services.sudo2.enableDumbMessage = true;
 
   services.nixosManual = {
     showManual = true;
