@@ -44,7 +44,8 @@ in {
         # Use LightDM as display manager
         displayManager.lightdm.enable = true;
 
-        libinput.enable = if cfg.isMobile then true else false;
+        # Enable on mobile for touchpads, etc.
+        libinput.enable = cfg.isMobile;
       
         # Use i3wm with a custom config
         windowManager = {
@@ -58,7 +59,7 @@ in {
       };
     
       compton = {
-        enable = true;
+        enable = !cfg.isMobile;
         extraOptions = ''
           opacity-rule = [ "95:class_g = 'qterminal'" ];
         '';
