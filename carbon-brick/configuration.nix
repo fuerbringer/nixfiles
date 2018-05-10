@@ -8,8 +8,8 @@
       # Desktop environment
       ./desktop
 
-      # Sudo
-      ./pkg-configs/sudo.nix
+      # Custom sudo
+      ./sudo
 
       # Zshell
       ./pkg-configs/zsh.nix
@@ -62,6 +62,7 @@
 
   services.desktop.backgroundImage = "/home/severin/sync/pics/wallpaper/abe2.jpg";
   services.desktop.isMobile = true;
+  services.sudo2.enableDumbMessage = true;
 
   services.syncthing = {
     enable = true;
