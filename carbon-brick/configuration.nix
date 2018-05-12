@@ -151,7 +151,7 @@
         lxqt.qterminal
         mpv
         redshift
-        screenfetch
+        neofetch
         scrot
         thunderbird
         torbrowser

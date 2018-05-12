@@ -184,7 +184,7 @@ in
         linuxPackages.virtualbox
         mpv
         redshift
-        screenfetch
+        neofetch
         scrot
         tdesktop
         thunderbird
