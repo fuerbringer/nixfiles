@@ -55,7 +55,6 @@
     EDITOR = "vim";
   };
 
-  services.openssh.enable = false;
   networking.firewall.enable = true;
 
   hardware.pulseaudio.enable = true;
@@ -64,6 +63,7 @@
   services.desktop.isMobile = true;
   services.sudo2.enableDumbMessage = true;
 
+  services.openssh.enable = false;
   services.syncthing = {
     enable = true;
     user = "severin";
@@ -87,7 +87,7 @@
     let
       # Generic pkgs and imports
      common = [
-        #texlive.combined.scheme-full
+        texlive.combined.scheme-basic
         alsaUtils
         bash
         bc
@@ -150,8 +150,9 @@
         libreoffice
         lxqt.qterminal
         mpv
-        redshift
         neofetch
+        qtox
+        redshift
         scrot
         thunderbird
         torbrowser
