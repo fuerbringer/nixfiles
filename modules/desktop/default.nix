@@ -13,6 +13,7 @@ in {
         example = "/path/to/image.png";
         description = "Path to the desktop wallpaper image (must be supported by pkgs.feh).";
       };
+      # TODO rename this option to make naming more consistent
       isMobile = mkOption {
         default = false;
         type = with types; nullOr bool;
@@ -20,6 +21,14 @@ in {
         description = ''
           Whether the computer is a mobile device.
           Displays more relevant information for mobile devices in the desktop environment if enabled.
+        '';
+      };
+      enableAutoLogin = mkOption {
+        default = false;
+        type = with types; nullOr bool;
+        example = true;
+        description = ''
+          Skip straight to the window manager.
         '';
       };
     };
@@ -42,7 +51,13 @@ in {
         layout = "ch";
       
         # Use LightDM as display manager
-        displayManager.lightdm.enable = true;
+        displayManager.lightdm = {
+          enable = true;
+          autoLogin = {
+            enable = cfg.enableAutoLogin;
+            user = "severin"; # TODO read this somehow? or pass as argument
+          };
+        };
 
         # Enable on mobile for touchpads, etc.
         libinput.enable = cfg.isMobile;

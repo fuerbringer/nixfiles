@@ -61,6 +61,7 @@
 
   services.desktop.backgroundImage = "/home/severin/sync/pics/wallpaper/abe2.jpg";
   services.desktop.isMobile = true;
+  services.desktop.enableAutoLogin = true;
   services.sudo2.enableDumbMessage = true;
 
   services.openssh.enable = false;
