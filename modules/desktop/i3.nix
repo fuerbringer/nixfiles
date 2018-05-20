@@ -4,6 +4,12 @@ let
   borders = if enableThinWindowBorders
     then { border = 1; inner = 5; outer = 1; }
     else { border = 2; inner = 15; outer = 2; };
+  smartBorders = if enableThinWindowBorders
+    then "smart_borders on"
+    else "";
+  smartGaps = if enableThinWindowBorders
+    then "smart_gaps on"
+    else "";
 in ''
 # i3 config file (v4)
 #
@@ -182,7 +188,8 @@ client.background       #0b000f
 for_window [class="^.*"] border pixel ${toString borders.border}
 gaps inner ${toString borders.inner}
 gaps outer ${toString borders.outer}
-smart_borders on
+${smartGaps}
+${smartBorders}
 
 # Alsa
 #bindsym $mod+Prior exec amixer -D pulse sset Master 5%+
