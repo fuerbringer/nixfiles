@@ -30,6 +30,7 @@
       allowDiscards = true;
     }
   ];
+  boot.cleanTmpDir = true;
 
   swapDevices = [
     { device = "/swap1";
@@ -37,7 +38,7 @@
     }
   ];
 
-  networking.hostName = "carbon-brick"; # Define your hostname.
+  networking.hostName = "carbon-brick";
   networking.networkmanager = {
     enable = true;
   };
@@ -88,7 +89,6 @@
     let
       # Generic pkgs and imports
      common = [
-        texlive.combined.scheme-basic
         alsaUtils
         bash
         bc
@@ -118,6 +118,7 @@
         stow
         sudo
         syncthing
+        texlive.combined.scheme-basic
         tldr
         unzip
         update-resolv-conf
