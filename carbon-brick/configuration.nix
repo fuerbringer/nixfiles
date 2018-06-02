@@ -42,6 +42,11 @@
   networking.networkmanager = {
     enable = true;
   };
+  virtualisation = {
+    docker = {
+      enable = true;
+    };
+  };
 
   i18n = {
     consoleFont = "Lat2-Terminus16";
@@ -76,7 +81,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.extraUsers.severin = {
     uid = 1000;
-    extraGroups = [ "wheel" "video" "audio" "syncthing" ];
+    extraGroups = [ "wheel" "video" "audio" "syncthing" "docker" ];
     group = "users";
     isNormalUser = true;
     initialPassword = "nepnep3"; # Just the initial passwd
@@ -94,6 +99,7 @@
         bc
         bmon
         curl
+        docker_compose
         file
         gcc
         git
@@ -103,6 +109,7 @@
         htop
         httpie
         i7z
+        jekyll
         kbfs
         moc
         nmap
@@ -113,6 +120,7 @@
         python35Packages.pip
         python35Packages.youtube-dl-light
         python3Full
+        ruby
         sshfs
         stack
         stow
