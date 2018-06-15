@@ -13,6 +13,9 @@
 
       # Zshell
       ./pkg-configs/zsh.nix
+
+      # Aliases
+      ./aliases.nix
     ];
 
   # Use the GRUB 2 boot loader.
@@ -100,6 +103,7 @@
         bmon
         curl
         docker_compose
+        emacs
         file
         gcc
         git
@@ -151,22 +155,23 @@
 
       # Graphical pkgs
      xorg = [
-        dmenu
-        feh
-        filezilla
-        firefox
-        gimp
-        keepassx2
-        libreoffice
-        lxqt.qterminal
-        mpv
-        neofetch
-        qtox
-        redshift
-        scrot
-        thunderbird
-        torbrowser
-        vlc
+       audacity
+       dmenu
+       feh
+       filezilla
+       firefox
+       gimp
+       keepassx2
+       libreoffice
+       lxqt.qterminal
+       mpv
+       neofetch
+       qtox
+       redshift
+       scrot
+       thunderbird
+       torbrowser
+       vlc
      ];
 
     in
