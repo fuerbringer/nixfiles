@@ -9,6 +9,7 @@
     ga = "git add";
     gb = "git branch";
     gc = "git commit -S -m";
+    gd = "git diff";
     gl = "git log";
     gp = "git push";
     gr = "git remote -v";
