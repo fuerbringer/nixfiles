@@ -108,6 +108,7 @@ in {
         source-code-pro
         terminus_font
         fira-code
+        fira-code-symbols
         # Misc. fonts
         noto-fonts
         google-fonts
