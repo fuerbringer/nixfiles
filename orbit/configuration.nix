@@ -110,7 +110,7 @@ in
   };
 
   environment.variables = {
-    TERMINAL = "xfce4-terminal";
+    TERMINAL = "qterminal";
     EDITOR = "vim";
   };
 
