@@ -60,7 +60,7 @@
   time.timeZone = "Europe/Zurich";
 
   environment.variables = {
-    TERMINAL = "xfce4-terminal";
+    TERMINAL = "qterminal";
     EDITOR = "vim";
   };
 
