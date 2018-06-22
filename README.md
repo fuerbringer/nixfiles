@@ -14,6 +14,6 @@ This repository declaratively defines the software I use on my computers and not
 
 ## Usage
 
-NixOS machine specifications are inside subfolders. They can be deployed with the supplied `Makefile`.
+NixOS machine profiles are inside subfolders. They can be deployed using the supplied `deploy.sh` bash script.
 
-Example: `make deploy machine=orbit`
+Example: `./deploy.sh deploy carbon-brick`
