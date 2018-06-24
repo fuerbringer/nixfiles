@@ -1,14 +1,14 @@
-{ backgroundImage, enableThinWindowBorders }:
+{ backgroundImage, enableGaps }:
 let
   background = if backgroundImage != "" then "exec feh --bg-fill ${backgroundImage}" else "";
-  borders = if enableThinWindowBorders
-    then { border = 1; inner = 5; outer = 1; }
-    else { border = 2; inner = 15; outer = 2; };
-  smartBorders = if enableThinWindowBorders
-    then "smart_borders on"
-    else "";
-  smartGaps = if enableThinWindowBorders
-    then "smart_gaps on"
+  smartBorders = if enableGaps then "smart_borders on" else "";
+  smartGaps = if enableGaps then "smart_gaps on" else "";
+  barHeight = if enableGaps then "height 20" else ""; # Only on available i3-gaps
+  gapsSettings = if enableGaps then ''
+    for_window [class="^.*"] border pixel 1
+    gaps inner 5
+    gaps outer 1
+    ''
     else "";
 in ''
 # i3 config file (v4)
@@ -162,7 +162,7 @@ bar {
 
   position bottom
   separator_symbol ","
-  height 20
+  ${barHeight}
   colors {
     background #0b000f
     statusline #888888
@@ -177,19 +177,13 @@ bar {
 }
 
 # class                 border  backgr. text    indicator
-client.focused          #7fdd57 #666666 #dddddd #aaaaaa
+#client.focused          #7fdd57 #666666 #dddddd #aaaaaa
+client.focused          #7fdd57 #0b000f #ffffff #aaaaaa
 client.focused_inactive #333333 #0b000f #888888 #484e50
 client.unfocused        #222222 #0b000f #888888 #292d2e
 client.urgent           #2f343a #900000 #ffffff #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000
 client.background       #0b000f
-
-# i3 gaps
-for_window [class="^.*"] border pixel ${toString borders.border}
-gaps inner ${toString borders.inner}
-gaps outer ${toString borders.outer}
-${smartGaps}
-${smartBorders}
 
 # Alsa
 #bindsym $mod+Prior exec amixer -D pulse sset Master 5%+
@@ -205,6 +199,11 @@ bindsym $mod+Control+Shift+l exec "i3lock-fancy --greyscale --pixelate && system
 #bindsym $mod+Next exec sh -c "pactl set-sink-mute 1 false ; pactl set-sink-volume 1 -5%"
 #exec xinput --set-prop 8 'libinput Accel Speed' -0.29
 exec xinput set-prop 'Logitech G400s Optical Gaming Mouse' 'Device Accel Profile' -1
+
+# i3 gaps
+${gapsSettings}
+${smartGaps}
+${smartBorders}
 
 # Background wallpaper
 ${background}
