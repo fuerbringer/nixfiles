@@ -1,15 +1,12 @@
 { backgroundImage, enableGaps }:
 let
   background = if backgroundImage != "" then "exec feh --bg-fill ${backgroundImage}" else "";
-  smartBorders = if enableGaps then "smart_borders on" else "";
-  smartGaps = if enableGaps then "smart_gaps on" else "";
-  barHeight = if enableGaps then "height 20" else ""; # Only on available i3-gaps
-  gapsSettings = if enableGaps then ''
-    for_window [class="^.*"] border pixel 1
-    gaps inner 5
-    gaps outer 1
-    ''
-    else "";
+  smartBorders = "smart_borders on";
+  smartGaps = "smart_gaps on";
+  barHeight = "height 20";
+  borders = if enableGaps
+    then { border = 2; inner = 15; outer = 2; }
+    else { border = 1; inner = 0; outer = 0; };
 in ''
 # i3 config file (v4)
 #
@@ -201,9 +198,11 @@ bindsym $mod+Control+Shift+l exec "i3lock-fancy --greyscale --pixelate && system
 exec xinput set-prop 'Logitech G400s Optical Gaming Mouse' 'Device Accel Profile' -1
 
 # i3 gaps
-${gapsSettings}
 ${smartGaps}
 ${smartBorders}
+for_window [class="^.*"] border pixel ${toString borders.border}
+gaps inner ${toString borders.inner}
+gaps outer ${toString borders.outer}
 
 # Background wallpaper
 ${background}

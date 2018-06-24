@@ -39,7 +39,7 @@ in {
     # Prepare configs for i3wm
     environment.etc."i3/config".text = import ./i3.nix
       { backgroundImage = if builtins.isNull cfg.backgroundImage then "" else "${cfg.backgroundImage}";
-        enableGaps = !cfg.isMobile;
+        enableGaps = !cfg.isMobile; # No big gaps on mobile
       };
     environment.etc."i3status.conf".text = import ./i3status.nix { enableMobileOptions = cfg.isMobile; };
     
@@ -66,8 +66,7 @@ in {
           i3 = {
             enable = true;
             configFile = "/etc/i3/config";
-	    # Go for regular i3wm on smaller screens and mobile devices.
-            package = if cfg.isMobile then pkgs.i3 else pkgs.i3-gaps;
+            package = pkgs.i3-gaps;
             extraPackages = with pkgs; [
               dmenu
               i3status
