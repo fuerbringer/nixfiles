@@ -16,7 +16,8 @@
 
       # Aliases
       ./aliases.nix
-    ];
+    ] ++ (if builtins.pathExists ./secrets/networkShares.nix then [ ./secrets/networkShares.nix ] else []);
+  
 
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
