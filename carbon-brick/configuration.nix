@@ -117,6 +117,7 @@
         jekyll
         kbfs
         moc
+        nix-prefetch-git
         nmap
         nodejs-8_x 
         openvpn
@@ -149,6 +150,12 @@
         pkgs.stdmanpages
      ];
 
+     haskell = [
+        cabal-install
+        cabal2nix
+        ghc
+     ];
+
      # When no Xorg installed
      noxorg = [
         tmux
@@ -176,5 +183,5 @@
      ];
 
     in
-      common ++ manPages ++ (if config.services.xserver.enable then xorg else noxorg);
+      common ++ haskell ++ manPages ++ (if config.services.xserver.enable then xorg else noxorg);
 }
