@@ -78,7 +78,7 @@
   services.syncthing = {
     enable = true;
     user = "severin";
-    dataDir = "/home/severin/sync";
+    dataDir = "/home/severin/sync/syncthing_config";
     openDefaultPorts = true;
   };
 
