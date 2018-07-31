@@ -121,6 +121,7 @@
         nmap
         nodejs-8_x 
         openvpn
+        pandoc
         pciutils
         pulseaudioLight
         python35Packages.pip
@@ -132,7 +133,7 @@
         stow
         sudo
         syncthing
-        texlive.combined.scheme-basic
+        texlive.combined.scheme-medium
         tldr
         unzip
         update-resolv-conf
