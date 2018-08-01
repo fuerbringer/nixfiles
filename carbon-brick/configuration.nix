@@ -110,24 +110,17 @@
         git
         gnumake
         gnupg1
-        hexchat
         htop
-        httpie
-        i7z
-        jekyll
-        kbfs
         moc
         nix-prefetch-git
         nmap
         nodejs-8_x 
-        openvpn
         pandoc
         pciutils
         pulseaudioLight
         python35Packages.pip
         python35Packages.youtube-dl-light
         python3Full
-        ruby
         sshfs
         stack
         stow
@@ -136,7 +129,6 @@
         texlive.combined.scheme-medium
         tldr
         unzip
-        update-resolv-conf
         vim
         w3m
         wget
@@ -170,6 +162,7 @@
        filezilla
        firefox
        gimp
+       hexchat
        keepassx2
        libreoffice
        lxqt.qterminal
@@ -184,5 +177,8 @@
      ];
 
     in
-      common ++ haskell ++ manPages ++ (if config.services.xserver.enable then xorg else noxorg);
+      common
+      ++ haskell
+      ++ manPages
+      ++ (if config.services.xserver.enable then xorg else noxorg);
 }
