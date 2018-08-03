@@ -1,5 +1,8 @@
 {
   environment.shellAliases = {
+    # Nix
+    nix-srch = "nix-env -Pqa | grep";
+
     # Editors
     v = "vim";
     e = "emacs";
@@ -14,5 +17,8 @@
     gp = "git push";
     gr = "git remote -v";
     gs = "git status";
+
+    # Misc
+    mupdf = "mupdf-x11";
   };
 }
