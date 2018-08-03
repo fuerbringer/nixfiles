@@ -167,6 +167,7 @@
        libreoffice
        lxqt.qterminal
        mpv
+       mupdf
        neofetch
        qtox
        redshift
