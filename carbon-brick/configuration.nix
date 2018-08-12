@@ -112,6 +112,7 @@
         gnupg1
         htop
         moc
+        mitscheme
         nix-prefetch-git
         nmap
         nodejs-8_x 
@@ -174,6 +175,7 @@
        scrot
        thunderbird
        torbrowser
+       tdesktop
        vlc
      ];
 
