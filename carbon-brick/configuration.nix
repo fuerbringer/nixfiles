@@ -101,6 +101,7 @@
         alsaUtils
         bash
         bc
+        binutils
         bmon
         curl
         docker_compose
@@ -127,7 +128,7 @@
         stow
         sudo
         syncthing
-        texlive.combined.scheme-medium
+        texlive.combined.scheme-full
         tldr
         unzip
         vim
