@@ -98,6 +98,10 @@
     let
       # Generic pkgs and imports
      common = [
+        aspell
+        aspellDicts.de
+        aspellDicts.en
+        aspellDicts.fr
         alsaUtils
         bash
         bc
@@ -159,6 +163,7 @@
       # Graphical pkgs
      xorg = [
        audacity
+       arandr
        dmenu
        feh
        filezilla
