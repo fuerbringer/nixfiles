@@ -16,7 +16,7 @@ set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Fira Code 11
+font pango:DejaVu Sans Mono 11
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -158,28 +158,28 @@ bar {
   status_command i3status --config /etc/i3status.conf
 
   position bottom
-  separator_symbol ","
+  separator_symbol "; "
   ${barHeight}
   colors {
-    background #0b000f
-    statusline #888888
-    separator #7fdd57
+    background #ededed
+    statusline #222222
+    separator #222222
 
     # Type             border  background font
-    focused_workspace  #7fdd57 #0b000f #dddddd
-    active_workspace   #333333 #0b000f #dddddd
-    inactive_workspace #333333 #0b000f #888888
+    focused_workspace  #888888 #ededed #222222
+    active_workspace   #888888 #ffffff #222222
+    inactive_workspace #333333 #ffffff #888888
     urgent_workspace   #aa0000 #990000 #ffffff
   }
 }
 
 # class                 border  backgr. text    indicator
-#client.focused          #7fdd57 #666666 #dddddd #aaaaaa
-client.focused          #7fdd57 #0b000f #ffffff #aaaaaa
-client.focused_inactive #333333 #0b000f #888888 #484e50
-client.unfocused        #222222 #0b000f #888888 #292d2e
-client.urgent           #2f343a #900000 #ffffff #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000
+#client.focused          #ededed #666666 #dddddd #aaaaaa
+client.focused          #ededed #ffffff #222222 #aaaaaa
+client.focused_inactive #333333 #ffffff #444444 #484e50
+client.unfocused        #222222 #ffffff #444444 #292d2e
+client.urgent           #2f343a #900000 #222222 #900000
+client.placeholder      #000000 #0c0c0c #222222 #000000
 client.background       #0b000f
 
 # Alsa

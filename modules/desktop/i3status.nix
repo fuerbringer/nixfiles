@@ -16,8 +16,8 @@ let
 in ''
 general {
   colors = true
-  color_good = "#888888"
-  color_bad = "#888888"
+  color_good = "#222222"
+  color_bad = "#222222"
   interval = ${toString mobileOptions.refreshRate}
 }
 

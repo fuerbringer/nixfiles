@@ -38,7 +38,7 @@
 
   swapDevices = [
     { device = "/swap1";
-      size = 1024;
+      size = 2048;
     }
   ];
 
@@ -92,7 +92,7 @@
     shell = "${pkgs.zsh}/bin/zsh";
   };
 
-  system.stateVersion = "18.03";
+  system.stateVersion = "18.09";
 
   environment.systemPackages = with pkgs;
     let
