@@ -105,6 +105,7 @@
         alsaUtils
         bash
         bc
+        bind
         binutils
         bmon
         curl
