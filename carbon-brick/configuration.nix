@@ -61,7 +61,7 @@
   time.timeZone = "Europe/Zurich";
 
   environment.variables = {
-    TERMINAL = "qterminal";
+    TERMINAL = "st";
     EDITOR = "vim";
   };
 
@@ -163,8 +163,8 @@
 
       # Graphical pkgs
      xorg = [
-       audacity
        arandr
+       audacity
        dmenu
        feh
        filezilla
@@ -173,16 +173,15 @@
        hexchat
        keepassx2
        libreoffice
-       lxqt.qterminal
        mpv
        mupdf
        neofetch
        qtox
        redshift
        scrot
+       tdesktop
        thunderbird
        torbrowser
-       tdesktop
        vlc
      ];
 

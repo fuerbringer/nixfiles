@@ -33,7 +33,7 @@ font pango:DejaVu Sans Mono 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec qterminal
+bindsym $mod+Return exec st
 
 # kill focused window
 bindsym $mod+Shift+q kill

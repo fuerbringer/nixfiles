@@ -42,6 +42,12 @@ in {
         enableGaps = !cfg.isMobile; # No big gaps on mobile
       };
     environment.etc."i3status.conf".text = import ./i3status.nix { enableMobileOptions = cfg.isMobile; };
+
+    nixpkgs.config.packageOverrides = pkgs: rec {
+      st = pkgs.stdenv.lib.overrideDerivation pkgs.st (oldAttrs : {
+        configFile = builtins.readFile ./config.def.h; # st config
+      });
+    };
     
     services = {
       xserver = {
@@ -93,6 +99,9 @@ in {
       };
     };
     
+    environment.systemPackages = with pkgs; [
+      st
+    ];
     
     fonts = {
       enableFontDir = true;
