@@ -69,7 +69,7 @@
 
   hardware.pulseaudio.enable = true;
 
-  services.desktop.backgroundImage = "/home/severin/sync/pics/wallpaper/abe2.jpg";
+  #services.desktop.backgroundImage = "/home/severin/mnt/pics/wallpaper/abe2.jpg";
   services.desktop.isMobile = true;
   services.desktop.enableAutoLogin = false;
   services.sudo2.enableDumbMessage = true;
@@ -98,11 +98,11 @@
     let
       # Generic pkgs and imports
      common = [
+        alsaUtils
         aspell
         aspellDicts.de
         aspellDicts.en
         aspellDicts.fr
-        alsaUtils
         bash
         bc
         bind
@@ -117,11 +117,15 @@
         gnumake
         gnupg1
         htop
-        moc
         mitscheme
+        moc
+        msmtp
+        neomutt
+        newsboat
         nix-prefetch-git
         nmap
         nodejs-8_x 
+        offlineimap
         pandoc
         pciutils
         pulseaudioLight
