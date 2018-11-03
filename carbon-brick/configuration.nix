@@ -98,6 +98,7 @@
     let
       # Generic pkgs and imports
      common = [
+        (import ./pkgs/linkhandler)
         alsaUtils
         aspell
         aspellDicts.de

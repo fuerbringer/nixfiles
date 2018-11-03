@@ -8,6 +8,7 @@ deploy () {
     NIXOS_CONF_BACKUP_FILE="$NIXOS_CONF_BACKUP$NOW$NIXOS_CONF_BACKUP_EXT"
     NIXOS_CONF_COMMON="common"
     NIXOS_CONF_MODULES="modules"
+    NIXOS_CONF_PKGS="pkgs"
     NIXOS_CONF_SECRETS_DIR="secrets"
 
     if [ -z $1 ]; then
@@ -29,6 +30,7 @@ deploy () {
 	sudo chmod 0600 $NIXOS_CONF_BACKUP_FILE
 	sudo cp -r ./$NIXOS_CONF_COMMON/* $NIXOS_CONF
 	sudo cp -r ./$NIXOS_CONF_MODULES/* $NIXOS_CONF
+	sudo cp -r ./$NIXOS_CONF_PKGS $NIXOS_CONF
 	sudo cp -r ./$NIXOS_CONF_SECRETS_DIR $NIXOS_CONF
 	sudo cp -r ./$MACHINE/* $NIXOS_CONF
 	echo "Done."
