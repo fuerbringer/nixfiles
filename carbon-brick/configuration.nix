@@ -49,6 +49,7 @@
   networking.networkmanager = {
     enable = true;
   };
+  networking.extraHosts = (import ./nullrouted.nix);
   virtualisation = {
     docker = {
       enable = true;
