@@ -27,6 +27,9 @@
   
   fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
 
+  nix.gc.automatic = true;
+  nix.optimise.automatic = true;
+
   boot.initrd.luks.devices = [
     { name = "root";
       device = "/dev/sda2";
