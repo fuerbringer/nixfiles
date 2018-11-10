@@ -86,6 +86,10 @@
     openDefaultPorts = true;
   };
 
+  services.cron.systemCronJobs = [
+    "0,15,30,45 * * * * offlineimap" # Fetch emails
+  ];
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.extraUsers.severin = {
     uid = 1000;
