@@ -5,16 +5,21 @@
 
     # Editors
     v = "vim";
+    sv = "sudoedit";
     e = "emacs";
     et = "emacs -nw"; # Terminal Emacs
 
     # Git shortcuts
+    g = "git";
     ga = "git add";
     gb = "git branch";
     gc = "git commit -S -m";
+    gch = "git checkout";
+    gchmp = "git checkout master && git pull";
     gd = "git diff";
     gl = "git log";
-    gp = "git push";
+    gpush = "git push";
+    gpull = "git pull";
     gr = "git remote -v";
     gs = "git status";
 
