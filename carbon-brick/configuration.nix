@@ -29,6 +29,7 @@
 
   nix.gc.automatic = true;
   nix.optimise.automatic = true;
+  nix.useSandbox = true;
 
   boot.initrd.luks.devices = [
     { name = "root";
