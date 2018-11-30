@@ -142,6 +142,7 @@
         python35Packages.pip
         python35Packages.youtube-dl-light
         python3Full
+        sc-im
         sent
         sshfs
         stack
