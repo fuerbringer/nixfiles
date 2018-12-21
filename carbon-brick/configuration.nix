@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  userName = "severin";
+in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -82,14 +85,17 @@
   services.openssh.enable = false;
   services.syncthing = {
     enable = true;
-    user = "severin";
-    dataDir = "/home/severin/sync/syncthing_config";
+    user = userName;
+    dataDir = "/home/${userName}/sync/syncthing_config";
     openDefaultPorts = true;
   };
 
-  services.cron.systemCronJobs = [
-    "0,15,30,45 * * * * offlineimap" # Fetch emails
-  ];
+  services.cron = {
+    enable = true;
+    systemCronJobs = [
+      "0,15,30,45 * * * * ${userName} ${pkgs.offlineimap}/bin/offlineimap"
+    ];
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.extraUsers.severin = {
