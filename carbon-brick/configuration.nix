@@ -77,8 +77,11 @@ in
 
   hardware.pulseaudio.enable = true;
 
-  #services.desktop.backgroundImage = "/home/severin/mnt/pics/wallpaper/abe2.jpg";
-  services.desktop.isMobile = true;
+  services.desktop = {
+    isMobile = true;
+    screenShotDest = "/home/${userName}/sync/scrot";
+    screenShotRemote = "https://scrot.fuerbringer.info";
+  };
   services.sudo2.enableDumbMessage = true;
 
   services.openssh.enable = false;
@@ -113,6 +116,7 @@ in
       # Generic pkgs and imports
      common = [
         (import ./pkgs/linkhandler)
+        (import ./pkgs/upscrot)
         alsaUtils
         aspell
         aspellDicts.de

@@ -1,4 +1,4 @@
-{ backgroundImage, enableGaps }:
+{ backgroundImage, enableGaps, screenShotDest, screenShotRemote}:
 let
   background = if backgroundImage != "" then "exec feh --bg-fill ${backgroundImage}" else "";
   smartBorders = "smart_borders on";
@@ -182,6 +182,9 @@ client.urgent           #2f343a #900000 #222222 #900000
 client.placeholder      #000000 #0c0c0c #222222 #000000
 client.background       #0b000f
 
+# Upscrot
+bindsym Print exec upscrot ${screenShotDest} ${screenShotRemote}
+
 # Alsa
 #bindsym $mod+Prior exec amixer -D pulse sset Master 5%+
 #bindsym $mod+Next exec amixer -D pulse sset Master 5%-
@@ -192,6 +195,7 @@ bindsym $mod+Next exec pactl set-sink-mute 1 false ; exec pactl -- set-sink-volu
 
 bindsym $mod+Control+l exec "i3lock-fancy --greyscale --pixelate"
 bindsym $mod+Control+Shift+l exec "i3lock-fancy --greyscale --pixelate && systemctl suspend"
+bindsym XF86Launch1 exec "i3lock-fancy --greyscale --pixelate && systemctl suspend"
 
 #bindsym $mod+Next exec sh -c "pactl set-sink-mute 1 false ; pactl set-sink-volume 1 -5%"
 #exec xinput --set-prop 8 'libinput Accel Speed' -0.29

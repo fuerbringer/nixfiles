@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+# $1 -> Local destination path
+# $2 -> Fully qualified remote path
+
+if [[ $DISPLAY ]]; then 
+  FILENAME="$(head -c 32 /dev/urandom | sha256sum | head -c 64).png"
+  FILEPATH="/tmp"
+  REMOTEPATH="/tmp"
+
+  if [[ ! -z "$1" ]]; then
+    FILEPATH="$1"
+  fi
+
+  maim -s > "$FILEPATH/$FILENAME"
+
+  if [[ ! -z "$2" ]]; then
+    REMOTEPATH="$2"
+  fi
+
+  echo "$REMOTEPATH/$FILENAME" | xclip -selection clipboard
+else
+  echo "Graphical environment not running. Exiting."
+fi
