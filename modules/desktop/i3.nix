@@ -192,14 +192,15 @@ bindsym Print exec upscrot ${screenShotDest} ${screenShotRemote}
 # PulseAudio
 bindsym $mod+Prior exec pactl set-sink-mute 1 false ; exec pactl set-sink-volume 1 +5%
 bindsym $mod+Next exec pactl set-sink-mute 1 false ; exec pactl -- set-sink-volume 1 -5%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +8%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -8%
+bindsym XF86AudioMute exec pactl set-sink-volume 0 0%
 
 bindsym $mod+Control+l exec "i3lock-fancy --greyscale --pixelate"
 bindsym $mod+Control+Shift+l exec "i3lock-fancy --greyscale --pixelate && systemctl suspend"
 bindsym XF86Launch1 exec "i3lock-fancy --greyscale --pixelate && systemctl suspend"
 
-#bindsym $mod+Next exec sh -c "pactl set-sink-mute 1 false ; pactl set-sink-volume 1 -5%"
-#exec xinput --set-prop 8 'libinput Accel Speed' -0.29
-exec xinput set-prop 'Logitech G400s Optical Gaming Mouse' 'Device Accel Profile' -1
+#exec xinput set-prop 'Logitech G400s Optical Gaming Mouse' 'Device Accel Profile' -1
 
 # i3 gaps
 ${smartGaps}
