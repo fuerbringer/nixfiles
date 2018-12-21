@@ -79,7 +79,6 @@ in
 
   #services.desktop.backgroundImage = "/home/severin/mnt/pics/wallpaper/abe2.jpg";
   services.desktop.isMobile = true;
-  services.desktop.enableAutoLogin = false;
   services.sudo2.enableDumbMessage = true;
 
   services.openssh.enable = false;
