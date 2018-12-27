@@ -164,6 +164,7 @@ in
         syncthing
         texlive.combined.scheme-full
         tldr
+        tmux
         unzip
         vim
         w3m
@@ -187,7 +188,6 @@ in
 
      # When no Xorg installed
      noxorg = [
-        tmux
      ];
 
       # Graphical pkgs
