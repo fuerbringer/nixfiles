@@ -17,6 +17,9 @@ in
       # Zshell
       ./pkg-configs/zsh.nix
 
+      # Tmux
+      ./pkg-configs/tmux.nix
+
       # Aliases
       ./aliases.nix
     ] ++ (if builtins.pathExists ./secrets/networkShares.nix then [ ./secrets/networkShares.nix ] else []);
@@ -164,7 +167,6 @@ in
         syncthing
         texlive.combined.scheme-full
         tldr
-        tmux
         unzip
         vim
         w3m
