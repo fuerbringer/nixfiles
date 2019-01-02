@@ -172,6 +172,7 @@ in
         w3m
         wget
         whois
+        xclip
         zlib
      ];
 
@@ -194,6 +195,7 @@ in
 
       # Graphical pkgs
      xorg = [
+       anki
        arandr
        audacity
        dmenu
