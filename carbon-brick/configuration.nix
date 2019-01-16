@@ -216,6 +216,7 @@ in
        thunderbird
        torbrowser
        vlc
+       zathura
      ];
 
     in
