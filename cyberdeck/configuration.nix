@@ -123,6 +123,7 @@ in
         gnumake
         gnupg1
         htop
+        lm_sensors
         moc
         msmtp
         neomutt
