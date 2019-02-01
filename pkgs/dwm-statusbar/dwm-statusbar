@@ -1,0 +1,92 @@
+#!/usr/bin/env bash
+
+# Colour codes from dwm/config.h
+color0="\x01" # normal  
+color6="\x02" # green 
+color7="\x03" # blue 
+color1="\x01" # white-ish fg
+
+print_power() {
+  status="$(cat /sys/class/power_supply/AC/online)"
+  battery="$(cat /sys/class/power_supply/BAT0/capacity)"
+  timer="$(acpi -b | grep "Battery" | awk '{print $5}' | cut -c 1-5)"
+  if [ "${status}" == 1 ]; then
+    echo -ne "${color6}PWR ${color0}ON ${battery}% "
+  else
+    echo -ne "${color6}PWR ${color0}${battery}% "
+  fi
+}
+
+print_wifiqual() {
+  wirelessinterface="wlp3s0"
+  wirelessstatus=$(nmcli | grep "${wirelessinterface}:")
+  if [[ $wirelessstatus == *"connected to"* ]]; then
+    conninfo=${wirelessstatus//connected to/}
+    echo -e "${color6}$(echo $conninfo) "
+  else
+    echo -e "${color6}$wirelessinterface: Down "
+  fi 
+}
+
+print_eth() {
+  ethinterface="enp0s25"
+  ethstatus=$(nmcli | grep "${ethinterface}:")
+  if [[ $ethstatus == *"connected to"* ]]; then
+    conninfo=${ethstatus//connected to/}
+    echo -e "${color6}${conninfo// Wired connection 1/Up} "
+  else
+    echo -e "${color6}$ethinterface: Down "
+  fi 
+}
+
+print_volume(){
+  mix=`amixer get Master | tail -1`
+  vol="$(amixer get Master | tail -n1 | sed -r 's/.*\[(.*)%\].*/\1/')"
+  if [[ $mix == *\[off\]* ]]; then
+    #red 2                                                
+    echo -e "${color6}í${color2}OFF"
+  elif [[ $mix == *\[on\]* ]]; then
+    #green 9
+    echo -e "${color6}SND${color0}${vol}% "
+  else
+    #yellow6
+    echo -e "${color6}SND${color2}--- "
+  fi
+}
+
+print_datetime() {
+  datetime="$(date +"%d.%m.%g %H:%M")"
+  echo -ne "${color1}${datetime}"
+}
+
+print_cputemp() {
+  cputemp="$(sensors|awk 'BEGIN{i=0;t=0;b=0}/id [0-9]/{b=$4};/Core/{++i;t+=$3}END{if(i>0){printf("%0.1f\n",t/i)}else{sub(/[^0-9.]/,"",b);print b}}')"
+  echo -ne "${color6}TEMP ${color0}${cputemp} "
+}
+
+print_cputemp_sm() {
+  cputemp="$(sensors|awk 'BEGIN{i=0;t=0;b=0}/id [0-9]/{b=$4};/Core/{++i;t+=$3}END{if(i>0){printf("%0.1f\n",t/i)}else{sub(/[^0-9.]/,"",b);print b}}')"
+  echo -e "${cputemp}"
+}
+
+while true; do
+  # get new cpu idle and total usage
+  eval $(awk '/^cpu /{print "cpu_idle_now=" $5 "; cpu_total_now=" $2+$3+$4+$5 }' /proc/stat)
+  cpu_interval=$((cpu_total_now-${cpu_total_old:-0}))
+  # calculate cpu usage (%)
+  let cpu_used="100 * ($cpu_interval - ($cpu_idle_now-${cpu_idle_old:-0})) / $cpu_interval"
+
+  # output vars
+  print_cpu_used() {
+    printf "%-1b" "${color6}CPU${color0}${cpu_used}%, $(print_cputemp_sm)° "
+  }
+
+  # Pipe to status bar, not indented due to printing extra spaces/tabs
+  xsetroot -name "$(print_cpu_used)|$(print_eth)|$(print_wifiqual)|$(print_volume)|$(print_power)|$(print_datetime)"
+
+  # reset old rates
+  cpu_idle_old=$cpu_idle_now
+  cpu_total_old=$cpu_total_now
+  # loop stats every 1 second
+  sleep 1 
+done
