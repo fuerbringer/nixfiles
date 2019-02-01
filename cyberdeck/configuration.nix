@@ -9,7 +9,7 @@ in
       ./hardware-configuration.nix
 
       # Desktop environment
-      ./desktop
+      ./desktop-dwm
 
       # Custom sudo
       ./sudo
@@ -61,10 +61,8 @@ in
 
   hardware.pulseaudio.enable = true;
 
-  services.desktop = {
+  services.desktop-dwm = {
     isMobile = true;
-    screenShotDest = "/home/${userName}/sync/scrot";
-    screenShotRemote = "https://scrot.fuerbringer.info";
   };
   services.sudo2.enableDumbMessage = true;
 
