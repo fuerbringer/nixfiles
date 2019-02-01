@@ -26,10 +26,10 @@ in {
       st = pkgs.stdenv.lib.overrideDerivation pkgs.st (oldAttrs : {
         configFile = builtins.readFile ./config.def.h; # st config # TODO: Move this elsewhere, not WM specific
       });
-      dwm = pkgs.dwm.override {
-        patches =
-        [ ./dwm-pertag-6.1.diff ];
-      };
+      # dwm = pkgs.dwm.override {
+      #   patches =
+      #   [ ./dwm-pertag-6.1.diff ];
+      # };
     };
     
     services = {
@@ -42,6 +42,8 @@ in {
         displayManager.lightdm = {
           enable = true;
         };
+
+        desktopManager.xterm.enable = false;
 
         # Enable on mobile for touchpads, etc.
         libinput.enable = cfg.isMobile;
