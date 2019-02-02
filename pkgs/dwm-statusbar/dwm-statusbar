@@ -82,7 +82,7 @@ while true; do
   }
 
   # Pipe to status bar, not indented due to printing extra spaces/tabs
-  xsetroot -name "$(print_cpu_used)|$(print_eth)|$(print_wifiqual)|$(print_volume)|$(print_power)|$(print_datetime)"
+  echo "$(print_cpu_used)|$(print_eth)|$(print_wifiqual)|$(print_volume)|$(print_power)|$(print_datetime)"
 
   # reset old rates
   cpu_idle_old=$cpu_idle_now
