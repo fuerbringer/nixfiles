@@ -1,5 +1,3 @@
-/* See LICENSE file for copyright and license details. */
-
 /* appearance */
 static const char *fonts[] = {
 	"monospace:size=10"
@@ -56,6 +54,9 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *suspendcmd[]  = { "susplock", NULL};
+static const char *raisevol[]  = { "pactl", "set-sink-volume", "0", "+8%", NULL};
+static const char *lowervol[]  = { "pactl", "set-sink-volume", "0", "-8%", NULL};
+static const char *mutevol[]  = { "pactl", "set-sink-volume", "0", "0%", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -92,11 +93,11 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_Delete,      quit,      {0} },
-	{ 0,                            0x1008FF41 /*XK_XF86Launch1*/, spawn,     {.v = suspendcmd} },
+	{ 0,                            0x1008FF41 /*XF86Launch1*/, spawn,     {.v = suspendcmd} },
+	{ 0,                            0x1008FF13 /*XF86XK_AudioRaiseVolume*/, spawn,     {.v = raisevol} },
+	{ 0,                            0x1008FF11 /*XF86XK_AudioLoverVolume*/, spawn,     {.v = lowervol} },
+	{ 0,                            0x1008FF12 /*XF86XK_AudioMuteVolume*/, spawn,     {.v = mutevol} },
 };
-/*XF86XK_AudioLowerVolume 0x1008FF11
-XF86XK_AudioRaiseVolume 0x1008FF13
-XF86XK_AudioMute  0x1008FF12*/
 
 /* button definitions */
 /* click can be ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
