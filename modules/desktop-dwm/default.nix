@@ -75,8 +75,10 @@ in {
     programs.slock.enable = true;
     
     environment.systemPackages = with pkgs; [
-      st
+      /* Suckless */
       slstatus
+      st
+      surf
       (import ./../pkgs/dwm-statusbar)
       (import ./../pkgs/susplock)
     ];
