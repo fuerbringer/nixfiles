@@ -6,11 +6,13 @@ This repository declaratively defines the software I use on my computers and not
 
 - `modules`: nix modules
 - `common`: static nix files (should probably convert those into modules)
+- `pkgs`: nix derivations for small shell scripts
 
 ### Machines
 
 - `carbon-brick`: Thinkpad
-- `orbit`: Home PC
+- `cyberdeck`: Another Thinkpad
+- `orbit`: Home PC (not used)
 
 ## Usage
 

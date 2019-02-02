@@ -137,6 +137,7 @@ in
         curl
         docker_compose
         emacs
+        entr
         file
         gcc
         git
