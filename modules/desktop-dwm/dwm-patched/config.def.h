@@ -91,9 +91,12 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_Delete,      quit,           {0} },
-	{ MODKEY|ShiftMask,             XK_Pause,      spawn,           {.v = suspendcmd} },
+	{ MODKEY|ShiftMask,             XK_Delete,      quit,      {0} },
+	{ 0,                            0x1008FF41 /*XK_XF86Launch1*/, spawn,     {.v = suspendcmd} },
 };
+/*XF86XK_AudioLowerVolume 0x1008FF11
+XF86XK_AudioRaiseVolume 0x1008FF13
+XF86XK_AudioMute  0x1008FF12*/
 
 /* button definitions */
 /* click can be ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
