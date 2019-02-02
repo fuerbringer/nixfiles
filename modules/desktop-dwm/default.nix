@@ -29,10 +29,10 @@ in {
       slstatus = pkgs.slstatus.override {
         conf = builtins.readFile ./slstatus.h;
       };
-      # dwm = pkgs.dwm.override {
-      #   patches =
-      #   [ ./dwm-pertag-6.1.diff ];
-      # };
+      dwm = pkgs.dwm.override {
+        patches =
+        [ ./config.def.h.diff ];
+      };
     };
 
     services = {
@@ -78,6 +78,7 @@ in {
       st
       slstatus
       (import ./../pkgs/dwm-statusbar)
+      (import ./../pkgs/susplock)
     ];
     
     fonts = {
