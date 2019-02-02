@@ -21,26 +21,33 @@ in {
   };
 
   config = {
-    # Suckless st config.def.h overrides
+    # Suckless config.def.h overrides
     nixpkgs.config.packageOverrides = pkgs: rec {
-      st = pkgs.stdenv.lib.overrideDerivation pkgs.st (oldAttrs : {
-        configFile = builtins.readFile ./config.def.h; # st config # TODO: Move this elsewhere, not WM specific
-      });
+      st = pkgs.st.override {
+        conf = builtins.readFile ./st.h;
+      };
+      slstatus = pkgs.slstatus.override {
+        conf = builtins.readFile ./slstatus.h;
+      };
       # dwm = pkgs.dwm.override {
       #   patches =
       #   [ ./dwm-pertag-6.1.diff ];
       # };
     };
-    
+
     services = {
       xserver = {
         enable = true;
         # Swiss-German keyboard layout
         layout = "ch";
       
-        # Use LightDM as display manager
-        displayManager.lightdm = {
-          enable = true;
+        displayManager =  {
+          setupCommands = ''
+            ${pkgs.slstatus}/bin/slstatus &
+          '';
+          lightdm = {
+            enable = true;
+          };
         };
 
         desktopManager.xterm.enable = false;
@@ -64,9 +71,12 @@ in {
         longitude = "8.5392";
       };
     };
+
+    programs.slock.enable = true;
     
     environment.systemPackages = with pkgs; [
       st
+      slstatus
       (import ./../pkgs/dwm-statusbar)
     ];
     
