@@ -114,7 +114,6 @@ in
         binutils
         bmon
         curl
-        docker_compose
         file
         gcc
         git
@@ -133,14 +132,13 @@ in
         pandoc
         pciutils
         pulseaudioLight
-        python35Packages.pip
         python35Packages.youtube-dl-light
-        python3Full
         sent
         sshfs
         stow
         sudo
         syncthing
+        texlive.combined.scheme-full
         tldr
         unzip
         vim
@@ -156,12 +154,6 @@ in
         pkgs.stdman
         pkgs.posix_man_pages
         pkgs.stdmanpages
-     ];
-
-     haskell = [
-        cabal-install
-        cabal2nix
-        ghc
      ];
 
      # When no Xorg installed
@@ -187,7 +179,6 @@ in
 
     in
       common
-      ++ haskell
       ++ manPages
       ++ (if config.services.xserver.enable then xorg else noxorg);
 }
