@@ -162,17 +162,15 @@ in
 
       # Graphical pkgs
      xorg = [
-       tdesktop
        arandr
        dmenu
        feh
-       filezilla
        firefox
        keepassx2
        mpv
        neofetch
-       redshift
        scrot
+       tdesktop
        vlc
        zathura
      ];
