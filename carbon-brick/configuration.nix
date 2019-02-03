@@ -9,7 +9,7 @@ in
       ./hardware-configuration.nix
 
       # Desktop environment
-      ./desktop
+      ./desktop-dwm
 
       # Custom sudo
       ./sudo
@@ -33,24 +33,17 @@ in
   
   fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
 
+  swapDevices = [
+    { device = "/swap";
+      size = 1024;
+    }
+  ];
+
   nix.gc.automatic = true;
   nix.optimise.automatic = true;
   nix.useSandbox = true;
 
-  boot.initrd.luks.devices = [
-    { name = "root";
-      device = "/dev/sda2";
-      preLVM = true;
-      allowDiscards = true;
-    }
-  ];
   boot.cleanTmpDir = true;
-
-  swapDevices = [
-    { device = "/swap1";
-      size = 2048;
-    }
-  ];
 
   networking.hostName = "carbon-brick";
   networking.networkmanager = {
@@ -80,10 +73,8 @@ in
 
   hardware.pulseaudio.enable = true;
 
-  services.desktop = {
+  services.desktop-dwm = {
     isMobile = true;
-    screenShotDest = "/home/${userName}/sync/scrot";
-    screenShotRemote = "https://scrot.fuerbringer.info";
   };
   services.sudo2.enableDumbMessage = true;
 
@@ -144,7 +135,6 @@ in
         gnumake
         gnupg1
         htop
-        mitscheme
         moc
         msmtp
         neomutt
@@ -159,7 +149,6 @@ in
         python35Packages.pip
         python35Packages.youtube-dl-light
         python3Full
-        sc-im
         sent
         sshfs
         stack
@@ -204,7 +193,6 @@ in
        filezilla
        firefox
        gimp
-       hexchat
        keepassx2
        libreoffice
        mpv
