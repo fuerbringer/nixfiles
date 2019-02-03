@@ -50,11 +50,6 @@ in
     enable = true;
   };
   networking.extraHosts = (import ./hosts.nix);
-  virtualisation = {
-    docker = {
-      enable = true;
-    };
-  };
 
   i18n = {
     consoleFont = "Lat2-Terminus16";
@@ -126,7 +121,6 @@ in
         binutils
         bmon
         curl
-        docker_compose
         emacs
         entr
         file
@@ -151,7 +145,6 @@ in
         python3Full
         sent
         sshfs
-        stack
         stow
         sudo
         syncthing
@@ -173,12 +166,6 @@ in
         pkgs.stdmanpages
      ];
 
-     haskell = [
-        cabal-install
-        cabal2nix
-        ghc
-     ];
-
      # When no Xorg installed
      noxorg = [
      ];
@@ -190,19 +177,14 @@ in
        audacity
        dmenu
        feh
-       filezilla
        firefox
        gimp
        keepassx2
        libreoffice
        mpv
-       mupdf
        neofetch
-       qtox
-       redshift
        scrot
        tdesktop
-       thunderbird
        torbrowser
        vlc
        zathura
@@ -210,7 +192,6 @@ in
 
     in
       common
-      ++ haskell
       ++ manPages
       ++ (if config.services.xserver.enable then xorg else noxorg);
 }
