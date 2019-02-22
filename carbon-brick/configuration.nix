@@ -108,6 +108,7 @@ in
     let
       # Generic pkgs and imports
      common = [
+        (import ./pkgs/bc-dl)
         (import ./pkgs/linkhandler)
         (import ./pkgs/upscrot)
         alsaUtils
