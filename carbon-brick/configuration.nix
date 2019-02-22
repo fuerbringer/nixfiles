@@ -147,6 +147,7 @@ in
         sshfs
         stow
         sudo
+        sxiv
         syncthing
         texlive.combined.scheme-full
         tldr
@@ -155,6 +156,7 @@ in
         w3m
         wget
         whois
+        mupdf
         xclip
         zlib
      ];
