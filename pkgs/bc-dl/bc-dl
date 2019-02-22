@@ -10,7 +10,7 @@ VEDIR="pip" # Virtualenv directory
 
 if [ -z "$1" ] || [ -z "$2" ]; then
   echo "Please provide all arguments: 
-    bc-dl [https://bandcamp.com/artist/album] [/path/to/dest/folder]"
+    bc-dl [https://artist.bandcamp.com/album] [/path/to/dest/folder]"
   exit 1
 fi
 
