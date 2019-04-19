@@ -95,7 +95,7 @@ in
     shell = "${pkgs.zsh}/bin/zsh";
   };
 
-  system.stateVersion = "18.09";
+  system.stateVersion = "19.03";
 
   environment.systemPackages = with pkgs;
     let
@@ -115,12 +115,14 @@ in
         binutils
         bmon
         curl
+        entr
         file
         gcc
         git
         gnumake
         gnupg1
         htop
+        libreoffice
         lm_sensors
         moc
         msmtp
@@ -165,8 +167,10 @@ in
      xorg = [
        arandr
        dmenu
+       emacs
        feh
        firefox
+       gimp
        keepassx2
        mpv
        neofetch
