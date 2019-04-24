@@ -121,6 +121,7 @@ in
         bind
         binutils
         bmon
+        calcurse
         curl
         emacs
         entr
