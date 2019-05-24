@@ -1,5 +1,5 @@
---- config.def.h	2019-02-02 14:13:48.411387456 +0100
-+++ dwm-patched/config.def.h	2019-02-02 17:32:36.820644507 +0100
+--- config.def.h	2019-05-24 17:39:12.430554084 +0200
++++ dwm-patched/config.def.h	2019-05-24 17:17:23.295215462 +0200
 @@ -1,5 +1,3 @@
 -/* See LICENSE file for copyright and license details. */
 -
@@ -16,6 +16,15 @@
  };
  
  /* layout(s) */
+@@ -42,7 +39,7 @@
+ };
+ 
+ /* key definitions */
+-#define MODKEY Mod1Mask
++#define MODKEY Mod4Mask
+ #define TAGKEYS(KEY,TAG) \
+ 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
+ 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
 @@ -56,6 +53,10 @@
  static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
  static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
