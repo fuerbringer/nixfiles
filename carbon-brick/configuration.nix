@@ -30,7 +30,7 @@ in
   boot.loader.grub.version = 2;
   boot.loader.grub.enableCryptodisk = true;
   boot.loader.grub.device = "/dev/sda";
-  
+
   fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
 
   swapDevices = [
@@ -102,7 +102,7 @@ in
     shell = "${pkgs.zsh}/bin/zsh";
   };
 
-  system.stateVersion = "18.09";
+  system.stateVersion = "19.03";
 
   environment.systemPackages = with pkgs;
     let
@@ -131,8 +131,10 @@ in
         gnumake
         gnupg1
         htop
+        irssi
         moc
         msmtp
+        mupdf
         neomutt
         newsboat
         nix-prefetch-git
@@ -158,7 +160,6 @@ in
         w3m
         wget
         whois
-        mupdf
         xclip
         zlib
      ];
