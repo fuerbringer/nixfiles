@@ -167,8 +167,10 @@ in
      xorg = [
        arandr
        dmenu
+       emacs
        feh
        firefox
+       gimp
        keepassx2
        mpv
        neofetch
