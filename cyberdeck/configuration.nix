@@ -11,9 +11,6 @@ in
       # Desktop environment
       ./desktop-dwm
 
-      # Custom sudo
-      ./sudo
-
       # Zshell
       ./pkg-configs/zsh.nix
 
@@ -68,7 +65,6 @@ in
   services.desktop-dwm = {
     isMobile = true;
   };
-  services.sudo2.enableDumbMessage = true;
 
   services.openssh.enable = false;
   services.syncthing = {
