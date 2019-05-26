@@ -89,8 +89,6 @@ in {
     
     fonts = {
       enableFontDir = true;
-      # fontconfig.cache32Bit = true;
-    
       fonts = with pkgs; [
         # Jap fonts
         ipafont
@@ -99,8 +97,6 @@ in {
         # Terminal fonts
         source-code-pro
         terminus_font
-        fira-code
-        fira-code-symbols
         # Misc. fonts
         noto-fonts
         google-fonts
