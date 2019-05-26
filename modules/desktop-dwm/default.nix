@@ -4,6 +4,10 @@ with lib;
 
 let
   cfg = config.services.desktop-dwm;
+  susplock = pkgs.writeScriptBin "susplock" ''
+    #!${pkgs.stdenv.shell}
+    ${pkgs.slock}/bin/slock & ${pkgs.systemd}/bin/systemctl suspend
+  '';
 in {
   options.services = {
     desktop-dwm = {
@@ -79,8 +83,8 @@ in {
       slstatus
       st
       surf
-      (import ./../pkgs/dwm-statusbar)
-      (import ./../pkgs/susplock)
+
+      susplock
     ];
     
     fonts = {

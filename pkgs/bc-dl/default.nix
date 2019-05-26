@@ -1,19 +1,39 @@
-with import <nixpkgs> {};
+{ config, pkgs, ... }:
 
-stdenv.mkDerivation rec {
-  name = "bc-dl";
-  version = "1.0.0";
+let
+  bc-dl = pkgs.writeScriptBin "bc-dl" ''
+    #!${pkgs.stdenv.shell}
+    # This is a script that spawns a nix shell, installs python stuff with
+    # bandcamp-dl and downloads an album into a directory
 
-  buildInputs = [ makeWrapper ];
+    nix-shell -p python36Packages.virtualenv bash --run bash << EOF
 
-  unpackPhase = "true";
+    WDIR="/tmp" # Working directory
+    VEDIR="pip" # Virtualenv directory
 
-  installPhase = ''
-    mkdir -p $out/bin
-    cp ${./bc-dl} $out/bin/${name}
+    if [ -z "$1" ] || [ -z "$2" ]; then
+      echo "Please provide all arguments: 
+        bc-dl [https://artist.bandcamp.com/album] [/path/to/dest/folder]"
+      exit 1
+    fi
 
-    for f in $out/bin/*; do
-      wrapProgram $f --prefix PATH : ${stdenv.lib.makeBinPath [ coreutils ]}
-    done
+    virtualenv /tmp/pip
+
+    source /tmp/pip/bin/activate
+
+    pip install bandcamp-downloader
+
+    # $1: bandcamp link
+    # $2: destination
+    bandcamp-dl --base-dir $2 $1
+
+    echo "Done."
+
+    EOF
   '';
+in
+{
+  config = {
+    environment.systemPackages = with pkgs; [ bc-dl ];
+  };
 }

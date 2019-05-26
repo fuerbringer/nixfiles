@@ -22,6 +22,10 @@ in
 
       # Aliases
       ./aliases.nix
+
+      # Script bin packages
+      ./pkgs/bc-dl
+      ./pkgs/linkhandler
     ] ++ (if builtins.pathExists ./secrets/networkShares.nix then [ ./secrets/networkShares.nix ] else []);
   
 
@@ -101,9 +105,6 @@ in
     let
       # Generic pkgs and imports
      common = [
-        (import ./pkgs/bc-dl)
-        (import ./pkgs/linkhandler)
-        (import ./pkgs/upscrot)
         alsaUtils
         aspell
         aspellDicts.de
