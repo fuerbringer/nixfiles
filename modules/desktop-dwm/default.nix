@@ -6,7 +6,8 @@ let
   cfg = config.services.desktop-dwm;
   susplock = pkgs.writeScriptBin "susplock" ''
     #!${pkgs.stdenv.shell}
-    ${pkgs.slock}/bin/slock & ${pkgs.systemd}/bin/systemctl suspend
+    # requires "${pkgs.slock}/bin/slock" if programs.slock.enable = false
+    slock & ${pkgs.systemd}/bin/systemctl suspend
   '';
 in {
   options.services = {
