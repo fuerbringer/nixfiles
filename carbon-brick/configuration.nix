@@ -92,10 +92,14 @@ in
     enable = true;
   };
 
+  virtualisation.virtualbox.host = {
+    enable = true;
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.extraUsers.severin = {
     uid = 1000;
-    extraGroups = [ "wheel" "video" "audio" "syncthing" "docker" ];
+    extraGroups = [ "wheel" "video" "audio" "syncthing" "vboxusers" ];
     group = "users";
     isNormalUser = true;
     initialPassword = "nepnep3"; # Just the initial passwd
