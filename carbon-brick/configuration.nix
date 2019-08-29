@@ -124,7 +124,6 @@ in
         bmon
         calcurse
         curl
-        emacs
         entr
         file
         gcc
@@ -133,6 +132,7 @@ in
         gnupg1
         htop
         irssi
+        jdk
         moc
         msmtp
         mupdf
@@ -178,9 +178,10 @@ in
 
       # Graphical pkgs
      xorg = [
-       anki
        arandr
        audacity
+       eclipses.eclipse-java
+       emacs
        dmenu
        feh
        firefox
