@@ -19,6 +19,6 @@
     # Misc
     mupdf = "mupdf-x11";
     zath = "zathura";
-    neom = "neomutt"
+    neom = "neomutt";
   };
 }
