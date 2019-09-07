@@ -180,15 +180,16 @@ in
      xorg = [
        arandr
        audacity
+       dmenu
        eclipses.eclipse-java
        emacs
-       dmenu
        feh
        firefox
        gimp
        keepassx2
        libreoffice
        mpv
+       mumble
        neofetch
        scrot
        tdesktop
