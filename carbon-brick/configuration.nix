@@ -9,7 +9,7 @@ in
       ./hardware-configuration.nix
 
       # Desktop environment
-      ./desktop-dwm
+      ./desktop
 
       # Zshell
       ./pkg-configs/zsh.nix
@@ -69,7 +69,11 @@ in
 
   hardware.pulseaudio.enable = true;
 
-  services.desktop-dwm = {
+  #services.desktop-dwm = {
+  #  isMobile = true;
+  #};
+
+  services.desktop = {
     isMobile = true;
   };
 

@@ -53,9 +53,9 @@ in {
     environment.etc."i3status.conf".text = import ./i3status.nix { enableMobileOptions = cfg.isMobile; };
 
     nixpkgs.config.packageOverrides = pkgs: rec {
-      st = pkgs.stdenv.lib.overrideDerivation pkgs.st (oldAttrs : {
-        configFile = builtins.readFile ./config.def.h; # st config
-      });
+      st = pkgs.st.override {
+        conf = builtins.readFile ./st.h;
+      };
     };
     
     services = {
@@ -91,7 +91,7 @@ in {
       compton = {
         enable = !cfg.isMobile;
         extraOptions = ''
-          opacity-rule = [ "95:class_g = 'qterminal'" ];
+          opacity-rule = [ "95:class_g = 'st'" ];
         '';
       };
     
