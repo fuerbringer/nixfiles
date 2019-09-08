@@ -1,4 +1,4 @@
-{ backgroundImage, enableGaps, screenShotDest, screenShotRemote}:
+{ backgroundImage, enableGaps}:
 let
   background = if backgroundImage != "" then "exec feh --bg-fill ${backgroundImage}" else "";
   smartBorders = "smart_borders on";
@@ -6,7 +6,7 @@ let
   barHeight = "height 20";
   borders = if enableGaps
     then { border = 2; inner = 15; outer = 2; }
-    else { border = 1; inner = 0; outer = 0; };
+    else { border = 2; inner = 0; outer = 0; };
 in ''
 # i3 config file (v4)
 #
@@ -16,7 +16,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:DejaVu Sans Mono 11
+font pango:Fira Mono 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -33,13 +33,13 @@ font pango:DejaVu Sans Mono 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec st
+bindsym $mod+Shift+Return exec st
 
 # kill focused window
 bindsym $mod+Shift+c kill
 
 # start dmenu (a program launcher)
-bindsym $mod+p exec dmenu_run
+bindsym $mod+p exec dmenu_run -fn "Fira Mono 10" -nb "#32302f" -sb "#928374" -sf "#32302f" -nf "#928374"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -122,7 +122,7 @@ bindsym $mod+Shift+0 move container to workspace 10
 # reload the configuration file
 bindsym $mod+Shift+r reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+delete restart
+bindsym $mod+Shift+Delete restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -158,32 +158,28 @@ bar {
   status_command i3status --config /etc/i3status.conf
 
   position bottom
-  separator_symbol "; "
+  separator_symbol " | "
   ${barHeight}
   colors {
-    background #ededed
-    statusline #222222
-    separator #222222
+    background #32302f
+    statusline #ebdbb2
+    separator #ebdbb2
 
     # Type             border  background font
-    focused_workspace  #888888 #ededed #222222
-    active_workspace   #888888 #ffffff #222222
-    inactive_workspace #333333 #ffffff #888888
-    urgent_workspace   #aa0000 #990000 #ffffff
+    focused_workspace  #1D2021 #928374 #32302f
+    active_workspace   #1D2021 #32302f #ebdbb2
+    inactive_workspace #1D2021 #32302f #ebdbb2
+    urgent_workspace   #1D2021 #cc241d #ebdbb2
   }
 }
 
 # class                 border  backgr. text    indicator
-#client.focused          #ededed #666666 #dddddd #aaaaaa
-client.focused          #ededed #ffffff #222222 #aaaaaa
-client.focused_inactive #333333 #ffffff #444444 #484e50
-client.unfocused        #222222 #ffffff #444444 #292d2e
-client.urgent           #2f343a #900000 #222222 #900000
-client.placeholder      #000000 #0c0c0c #222222 #000000
-client.background       #0b000f
-
-# Upscrot
-bindsym Print exec upscrot ${screenShotDest} ${screenShotRemote}
+client.focused          #928374 #32302f #eeeeee #ebdbb2
+client.focused_inactive #1D2021 #1D2021 #eeeeee #ebdbb2
+client.unfocused        #1D2021 #1D2021 #eeeeee #ebdbb2
+client.urgent           #cc241d #32302f #eeeeee #ebdbb2
+client.placeholder      #928374 #1D2021 #eeeeee #ebdbb2
+client.background       #32302f
 
 # Alsa
 #bindsym $mod+Prior exec amixer -D pulse sset Master 5%+

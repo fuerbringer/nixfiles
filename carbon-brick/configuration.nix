@@ -75,6 +75,7 @@ in
 
   services.desktop = {
     isMobile = true;
+    backgroundImage = "/home/${userName}/mnt/pics/wallpaper/jupiter.png";
   };
 
   services.openssh.enable = false;

@@ -3,21 +3,20 @@ let
   mobileOptions = if enableMobileOptions
     then
     { extraOptions = ''
-        order += "ethernet _first_"
         order += "wireless _first_"
         order += "battery 0"
         '';
       refreshRate = 2;
     }
     else
-    { extraOptions = "";
+    { extraOptions = ''order += "ethernet _first_"'';
       refreshRate = 1;
     };
 in ''
 general {
   colors = true
-  color_good = "#222222"
-  color_bad = "#222222"
+  color_good = "#eeeeee"
+  color_bad = "#eeeeee"
   interval = ${toString mobileOptions.refreshRate}
 }
 
@@ -25,7 +24,7 @@ ${mobileOptions.extraOptions}
 
 order += "cpu_usage"
 #order += "ipv6"
-order += "disk /"
+#order += "disk /"
 #order += "run_watch DHCP"
 #order += "run_watch VPN"
 #order += "load"
