@@ -14,7 +14,7 @@ let
     };
 in ''
 general {
-  colors = true
+  colors = false
   color_good = "#eeeeee"
   color_bad = "#eeeeee"
   interval = ${toString mobileOptions.refreshRate}
