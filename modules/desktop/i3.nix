@@ -39,7 +39,7 @@ bindsym $mod+Shift+Return exec st
 bindsym $mod+Shift+c kill
 
 # start dmenu (a program launcher)
-bindsym $mod+p exec dmenu_run -fn "Fira Mono 10" -nb "#32302f" -sb "#928374" -sf "#32302f" -nf "#928374"
+bindsym $mod+p exec dmenu_run -fn "Fira Mono 10" -nb "#32302f" -sb "#928374" -nf "#ebdbb2" -sf "#32302f"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -195,8 +195,6 @@ bindsym XF86AudioMute exec pactl set-sink-volume 0 0%
 bindsym $mod+Control+l exec "i3lock-fancy --greyscale --pixelate"
 bindsym $mod+Control+Shift+l exec "i3lock-fancy --greyscale --pixelate && systemctl suspend"
 bindsym XF86Launch1 exec "i3lock-fancy --greyscale --pixelate && systemctl suspend"
-
-#exec xinput set-prop 'Logitech G400s Optical Gaming Mouse' 'Device Accel Profile' -1
 
 # i3 gaps
 ${smartGaps}
