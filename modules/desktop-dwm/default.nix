@@ -39,6 +39,12 @@ in {
         [ ./config.def.h.diff ];
       };
     };
+      
+    location = {
+      # Zürich City
+      latitude = 47.3686;
+      longitude = 8.5392;
+    };
 
     services = {
       xserver = {
@@ -70,10 +76,6 @@ in {
     
       redshift = {
         enable = true;
-      
-        # Zürich City
-        latitude = "47.3686";
-        longitude = "8.5392";
       };
     };
 

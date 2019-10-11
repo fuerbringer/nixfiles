@@ -39,6 +39,12 @@ in {
         conf = builtins.readFile ./st.h;
       };
     };
+      
+    # Zürich City
+    location = {
+      latitude = 47.3686;
+      longitude = 8.5392;
+    };
     
     services = {
       xserver = {
@@ -72,19 +78,8 @@ in {
         };
       };
     
-      compton = {
-        enable = !cfg.isMobile;
-        extraOptions = ''
-          opacity-rule = [ "50:class_g = 'st'" ];
-        '';
-      };
-    
       redshift = {
         enable = true;
-      
-        # Zürich City
-        latitude = "47.3686";
-        longitude = "8.5392";
       };
     };
     

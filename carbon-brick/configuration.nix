@@ -9,7 +9,7 @@ in
       ./hardware-configuration.nix
 
       # Desktop environment
-      ./desktop
+      ./desktop-dwm
 
       # Zshell
       ./pkg-configs/zsh.nix
@@ -69,14 +69,14 @@ in
 
   hardware.pulseaudio.enable = true;
 
-  #services.desktop-dwm = {
-  #  isMobile = true;
-  #};
-
-  services.desktop = {
+  services.desktop-dwm = {
     isMobile = true;
-    backgroundImage = "/home/${userName}/mnt/pics/wallpaper/jupiter.png";
   };
+
+  #services.desktop = {
+  #  isMobile = true;
+  #  backgroundImage = "/home/${userName}/mnt/pics/wallpaper/jupiter.png";
+  #};
 
   services.openssh.enable = false;
   services.syncthing = {
@@ -111,7 +111,7 @@ in
     shell = "${pkgs.zsh}/bin/zsh";
   };
 
-  system.stateVersion = "19.03";
+  system.stateVersion = "19.09";
 
   environment.systemPackages = with pkgs;
     let
@@ -142,10 +142,10 @@ in
         msmtp
         mupdf
         neomutt
-        newsboat
+        #newsboat
         nix-prefetch-git
         nmap
-        nodejs-8_x 
+        nodejs
         offlineimap
         pandoc
         pciutils
